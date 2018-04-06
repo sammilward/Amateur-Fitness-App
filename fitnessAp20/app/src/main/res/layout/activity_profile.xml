@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context="com.example.samue.fitnessap20.ProfileActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="95dp"
+            android:text="name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_marginStart="36dp"
+            android:layout_toEndOf="@+id/textView4"
+            android:ems="10"
+            android:inputType="none|textPersonName" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/Exercise"
         android:layout_width="wrap_content"

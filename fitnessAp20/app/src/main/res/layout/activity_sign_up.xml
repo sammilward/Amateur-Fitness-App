@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/Exercise"
@@ -37,10 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="67dp"
-            android:layout_marginStart="29dp"
-            android:onClick="pressedButton"
+            android:layout_alignStart="@+id/textView20"
+            android:layout_marginBottom="23dp"
+            android:layout_marginStart="21dp"
+            android:onClick="submitForm"
             android:text="Submit" />
 
         <Button
@@ -50,7 +50,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/submitButton"
             android:layout_marginEnd="25dp"
-            android:onClick="pressedButton"
+            android:onClick="cancelForm"
             android:text="Cancel" />
 
         <RelativeLayout
@@ -70,7 +70,7 @@
                 android:columnCount="3">
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/name"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -79,25 +79,25 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText10"
-                    android:layout_width="50dp"
+                    android:id="@+id/age"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_marginTop="5dp"
                     android:ems="10"
-                    android:hint="age"
+                    android:hint="DOB"
                     android:inputType="date" />
 
                 <EditText
-                    android:id="@+id/editText11"
+                    android:id="@+id/height"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:ems="10"
                     android:hint="height"
-                    android:inputType="textPersonName|number" />
+                    android:inputType="phone" />
             </GridLayout>
 
             <LinearLayout
@@ -120,7 +120,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText15"
+                    android:id="@+id/weight"
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -140,7 +140,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton12"
+                    android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -149,9 +149,11 @@
                     android:text="male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton13"
+                    android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/radioGroup"
+                    android:layout_alignTop="@+id/radioGroup"
                     android:layout_weight="1"
                     android:text="female" />
             </RadioGroup>
@@ -160,16 +162,16 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/editText17"
-                android:layout_alignBottom="@+id/editText17"
+                android:layout_alignBaseline="@+id/target"
+                android:layout_alignBottom="@+id/target"
                 android:layout_marginEnd="20dp"
-                android:layout_toStartOf="@+id/editText17"
+                android:layout_toStartOf="@+id/target"
                 android:paddingLeft="10dp"
                 android:text="Weekly weight loss tagert"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editText17"
+                android:id="@+id/target"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -199,14 +201,14 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton14"
+                android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="rarely (never)" />
 
             <RadioButton
-                android:id="@+id/radioButton15"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -215,7 +217,7 @@
                 android:text="sometimes 2-3 days" />
 
             <RadioButton
-                android:id="@+id/radioButton16"
+                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -234,11 +236,12 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText18"
+            android:id="@+id/calories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cancelButton"
-            android:layout_alignEnd="@+id/cancelButton"
+            android:layout_alignBaseline="@+id/textView20"
+            android:layout_alignBottom="@+id/textView20"
+            android:layout_toEndOf="@+id/textView20"
             android:ems="10"
             android:inputType="number"
             tools:layout_editor_absoluteX="940dp"
