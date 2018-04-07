@@ -1,5 +1,11 @@
-Doorway Row@1@Arms@Doorway Row.png@Stand near a doorway or vertical pole. Get into a half squat position and hang on to the doorway with one arm. Pull yourself towards the doorway, and slowly return to the starting position. Repeat.
+﻿Doorway Row@1@Arms@Doorway Row.png@Stand near a doorway or vertical pole. Get into a half squat position and hang on to the doorway with one arm. Pull yourself towards the doorway, and slowly return to the starting position. Repeat.
 Bench Dips@1@Arms@Bench Dips.png@Sit on the floor with a step or a bench behind you. Keeping your legs straight and heels on the ground, hold on to the edge of the elevated surface and press yourself up. Slowly lower yourself down by bending your elbows 90 degrees.
 Inverted Row@3@Arms@Inverted Row.png@Head out and find a playground with some horizontal bars, or use the underside of a table again. If you’re using a bar grab it with your palms facing away from you, and if you’re using a table grab the outer edges. Pull your body up until your chest meets the surface, and slowly lower yourself back to a hanging position.
 Diamond Push Up@4@Arms@Diamond Push Up.png@Place your hands on the ground with your thumbs and index fingers touching to make a diamond shape (hence the name). Proceed to do a push-up while keeping your elbows close to your body. This variation places emphasis on the triceps.
-Pull-Up@4@Arms@Pull-Up.png@Find a steady pole like structure above your head that can hold your weight. Grab the pole with your palms facing forward, slowly bend your knees so your arms are holding your body weight above the ground. Bend your arms until your chin is above the bar, and then slowly lower your body to the original position. Repeat.
+Pull-Up@4@Arms@Pull-Up.png@Find a steady pole like structure above your head that can hold 
+
+  I made a change 
+
+
+
+your weight. Grab the pole with your palms facing forward, slowly bend your knees so your arms are holding your body weight above the ground. Bend your arms until your chin is above the bar, and then slowly lower your body to the original position. Repeat.
