@@ -77,10 +77,18 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
-            android:text="Get Fit Now !!!!"
+            android:text="Get Fit Now"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/button2"
+            android:text="Warning: This will erase the current users data" />
 
 
     </RelativeLayout>

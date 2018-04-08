@@ -121,6 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
                     NewUser.FitnessLevel = "5";
                 }
                 NewUser.CalculateRecommendedCalories();
+                dm.refreshDatabase();
                 dm.SetUserDetails(NewUser);
 
 

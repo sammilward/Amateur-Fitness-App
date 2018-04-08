@@ -558,6 +558,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
             Temp.SaltPer100 = cursor.getString(cursor.getColumnIndex("SaltPer100"));
 
             cursor.close();
+            database.close();
         }
         catch (SQLException e)
         {
@@ -566,6 +567,41 @@ public class DatabaseManager extends SQLiteOpenHelper{
 
         database.close();
         return Temp;
+    }
+
+    public ArrayList<Food> GetAllFood()
+    {
+
+        ArrayList<Food> AllFood = new ArrayList();
+
+        try {
+            database = this.getWritableDatabase();
+            String[] Cols = {"FoodName", "CaloriesPer100", "FatPer100", "FatSaturatedPer100", "CarbsPer100", "CarbSugarPer100", "ProteinPer100", "FibrePer100", "SaltPer100"};
+            Cursor cursor = database.query(FoodTable, Cols, null ,null,null,null,null);
+            while(cursor.moveToNext())
+            {
+                Food Temp = new Food();
+                Temp.FoodName = cursor.getString(cursor.getColumnIndex("FoodName"));
+                Temp.CaloriesPer100 = cursor.getString(cursor.getColumnIndex("CaloriesPer100"));
+                Temp.FatPer100 = cursor.getString(cursor.getColumnIndex("FatPer100"));
+                Temp.FatSaturatedPer100 = cursor.getString(cursor.getColumnIndex("FatSaturatedPer100"));
+                Temp.CarbsPer100 = cursor.getString(cursor.getColumnIndex("CarbsPer100"));
+                Temp.CarbSugarPer100 = cursor.getString(cursor.getColumnIndex("CarbSugarPer100"));
+                Temp.ProteinPer100 = cursor.getString(cursor.getColumnIndex("ProteinPer100"));
+                Temp.FibrePer100 = cursor.getString(cursor.getColumnIndex("FibrePer100"));
+                Temp.SaltPer100 = cursor.getString(cursor.getColumnIndex("SaltPer100"));
+
+                AllFood.add(Temp);
+            }
+            cursor.close();
+            database.close();
+
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        return AllFood;
     }
 
 

@@ -26,7 +26,7 @@
                 android:id="@+id/textView38"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="FoodName"
                 android:textStyle="bold" />
 
@@ -35,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Required"
                 android:inputType="textPersonName" />
         </TableRow>
 
@@ -46,8 +47,8 @@
                 android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="CaloriesPer 100g    "
+                android:gravity="left"
+                android:text="Calories(kcal) Per 100g    "
                 android:textStyle="bold" />
 
             <EditText
@@ -55,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Required"
                 android:inputType="textPersonName" />
         </TableRow>
 
@@ -66,7 +68,7 @@
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:text="FatPer 100g"
                 android:textStyle="bold" />
 
@@ -80,14 +82,15 @@
 
         <TableRow
             android:layout_width="match_parent"
+            android:gravity="left"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text=" Fat Saturated per 100g"
+                android:gravity="left"
+                android:text="Fat Saturated per 100g"
                 android:textStyle="bold" />
 
             <EditText
@@ -101,15 +104,14 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:gravity="left">
 
             <TextView
                 android:id="@+id/textView35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="CarbsPer 100g"
-                android:textAlignment="viewStart"
                 android:textStyle="bold" />
 
             <EditText
@@ -128,7 +130,7 @@
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:text="CarbSugar Per 100g"
                 android:textStyle="bold" />
 
@@ -148,7 +150,7 @@
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:text="Protein Per 100g"
                 android:textStyle="bold" />
 
@@ -168,7 +170,7 @@
                 android:id="@+id/textView30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:text="Fibre Per 100g "
                 android:textStyle="bold" />
 
@@ -188,7 +190,7 @@
                 android:id="@+id/textView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:text="Salt Per 100g"
                 android:textStyle="bold" />
 
@@ -220,6 +222,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="11dp"
             android:text="Submit Food Item"
+            android:onClick="AddFood"
             tools:layout_editor_absoluteX="117dp"
             tools:layout_editor_absoluteY="575dp" />
 
