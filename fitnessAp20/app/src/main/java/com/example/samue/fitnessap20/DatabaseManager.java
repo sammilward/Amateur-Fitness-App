@@ -3,6 +3,7 @@ package com.example.samue.fitnessap20;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -656,7 +657,10 @@ public class DatabaseManager extends SQLiteOpenHelper{
         {
             System.out.println(e.getMessage());
         }
-
+        catch (CursorIndexOutOfBoundsException e)
+        {
+            Temp.Name = "NO USER";
+        }
         database.close();
         return Temp;
     }
