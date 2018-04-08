@@ -3,4 +3,12 @@
     <string name="loginButton">Login</string>
     <string name="signUpButton">Register</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+
+    <string-array name="TargetArray">
+        <item>Maintain Weight</item>
+        <item>Lose 1 lb a week</item>
+        <item>Lose 2 lb a week</item>
+    </string-array>
+
+
 </resources>
