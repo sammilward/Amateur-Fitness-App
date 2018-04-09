@@ -26,29 +26,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void butPressed(View view){
+ public void butPressed(View view){
 
-            if(view == findViewById(R.id.cmdContiinue)){
 
-                if (dm.GetUsersDetails().Name == "NO USER")
-                {
-                    Toast.makeText(this, "You need to create a profile", Toast.LENGTH_LONG).show();
-
-                }
-                else{
-                    Intent activity = new Intent(getApplication(), HomeActivity.class);
-
-                    startActivity(activity);
-                }
+        if(view == findViewById(R.id.cmdContinue)){
+            if (dm.GetUsersDetails().Name == "NO USER")
+            {
+                Toast.makeText(this, "You need to create a profile", Toast.LENGTH_LONG).show();
 
             }
-            else {
-
-                Intent activity = new Intent(getApplication(), SignUpActivity.class);
+            else{
+                Intent activity = new Intent(getApplication(), HomeActivity.class);
 
                 startActivity(activity);
             }
 
+        }
+        else {
+
+            Intent activity = new Intent(getApplication(), SignUpActivity.class);
+
+            startActivity(activity);
+        }
 
 
         }

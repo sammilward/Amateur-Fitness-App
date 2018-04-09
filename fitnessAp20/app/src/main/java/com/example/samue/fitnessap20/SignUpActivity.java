@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-    protected void submitForm(View view) {
+    public void submitForm(View view) {
 
         if(verifyData()) {
             if (view == findViewById(R.id.submitButton)) {
@@ -145,7 +145,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    protected void cancelForm(View view){
+    public void cancelForm(View view){
 
 
             Intent activity = new Intent(getApplication(), MainActivity.class);
@@ -154,7 +154,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    protected boolean verifyData(){
+    public boolean verifyData(){
         if(txtName.getText().length() <= 0 || txtName.getText().length() < 2) {
             Toast.makeText(this, "The name must be 2 or more letters", Toast.LENGTH_LONG).show();
             return false;

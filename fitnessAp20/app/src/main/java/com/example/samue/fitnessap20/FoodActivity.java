@@ -14,7 +14,7 @@ public class FoodActivity extends AppCompatActivity {
     }
 
 
-    protected void setDate(View view){
+    public void setDate(View view){
 
     }
 
@@ -22,7 +22,7 @@ public class FoodActivity extends AppCompatActivity {
 
 
 
-    protected void addFood(View view) {
+    public void addFood(View view) {
 
         if (view == findViewById(R.id.addFood)) {
 

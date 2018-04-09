@@ -14,7 +14,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    protected void pressedButton(View view){
+    public void pressedButton(View view){
 
         if(view == findViewById(R.id.foodButton)){
             Intent activity = new Intent(getApplication(), FoodActivity.class);
