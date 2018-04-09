@@ -37,7 +37,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/dateVIEW"
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp" />
@@ -49,12 +49,11 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/dateButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:onClick="setDate"
                     android:text="Select Date"
                     android:textColor="#000000" />
             </RelativeLayout>

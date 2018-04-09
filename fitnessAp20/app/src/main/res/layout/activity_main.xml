@@ -63,7 +63,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/dateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/cmdContinue"
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/button2"
+            android:layout_below="@id/dateButton"
             android:text="Warning: This will erase the current users data" />
 
 

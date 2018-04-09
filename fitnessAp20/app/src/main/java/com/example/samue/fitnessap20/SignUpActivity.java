@@ -1,20 +1,32 @@
 package com.example.samue.fitnessap20;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.String;
+import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText txtName, txtHeight, txtWeight ,txtDOB;
     RadioButton rbMale, rbFemale, rbLevel1, rbLevel2, rbLevel3, rbLevel4, rbLevel5;
+
     Spinner cbTarget;
+    Button dateButton;
+    TextView DOB;
+    DatePickerDialog.OnDateSetListener dateListener; // Created a datePick Dialog with listener
+    int day, month, year;
     DatabaseManager dm = new DatabaseManager(this);
 
     @Override
@@ -27,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         //initializing all the TextViews
         txtName = (EditText)findViewById(R.id.name);
         txtHeight = (EditText)findViewById(R.id.height);
-        txtDOB = (EditText)findViewById(R.id.age);
+        DOB = (TextView)findViewById(R.id.DOB);
         txtWeight = (EditText)findViewById(R.id.weight);
         cbTarget = (Spinner)findViewById(R.id.cbTarget);
 
@@ -46,12 +58,51 @@ public class SignUpActivity extends AppCompatActivity {
         rbLevel4 = (RadioButton)findViewById(R.id.rblevel4);
         rbLevel5 = (RadioButton)findViewById(R.id.rblevel5);
 
-
-
-
-
         //NewUser.CalculateRecommendedCalories();
         //dm.SetUserDetails(NewUser);
+        dateButton = (Button)findViewById(R.id.dateButton);
+
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                month = calendar.get(Calendar.MONTH);
+                year = calendar.get(Calendar.YEAR);
+                DOB.setText("" + day + "/"+ (month+1) +"/" + year);
+
+                DatePickerDialog dialog = new DatePickerDialog(SignUpActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateListener,
+                        year,month,day);
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+
+
+
+
+            }
+        });
+
+        dateListener = new DatePickerDialog.OnDateSetListener(){
+            public void onDateSet(DatePicker datePicker, int year, int month, int day){
+
+                DOB.setText("" + day + "/"+ (month+1) +"/" + year);
+            }
+        };
+
+
+
+    }
+
+
+
+    public void setDOB(View view){
+
+
+
+
+
 
 
     }
