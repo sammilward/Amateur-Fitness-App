@@ -11,37 +11,248 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/Exercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:text="Profile"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/lblName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/Exercise"
             android:layout_marginStart="23dp"
-            android:layout_marginTop="95dp"
-            android:text="name"
+            android:text="Name"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView4"
+            android:layout_alignBottom="@+id/lblName"
             android:layout_marginStart="36dp"
-            android:layout_toEndOf="@+id/textView4"
+            android:layout_toEndOf="@+id/lblName"
             android:ems="10"
-            android:inputType="none|textPersonName" />
+            android:inputType="none|textPersonName"
+            android:textAlignment="textEnd" />
+
+
+        <TextView
+            android:id="@+id/lblInitalWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblName"
+            android:layout_below="@+id/txtName"
+            android:layout_marginTop="20dp"
+            android:text="Initial Weight"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtInitalWeight"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lblInitalWeight"
+            android:layout_marginStart="36dp"
+            android:layout_toEndOf="@+id/lblInitalWeight"
+            android:ems="10"
+            android:inputType="none|number"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/lblCurrentWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblInitalWeight"
+            android:layout_below="@+id/txtInitalWeight"
+            android:layout_marginTop="21dp"
+            android:text="Current Weight"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtCurrentWeight"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lblCurrentWeight"
+            android:layout_alignBottom="@+id/lblCurrentWeight"
+            android:layout_alignStart="@+id/txtInitalWeight"
+            android:ems="10"
+            android:inputType="none|number"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/lblHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblCurrentWeight"
+            android:layout_below="@+id/txtCurrentWeight"
+            android:layout_marginTop="14dp"
+            android:text="Height"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lblHeight"
+            android:layout_alignBottom="@+id/lblHeight"
+            android:layout_alignStart="@+id/txtName"
+            android:ems="10"
+            android:inputType="none|number"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/lblDOB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblHeight"
+            android:layout_below="@+id/txtHeight"
+            android:layout_marginTop="13dp"
+            android:text="D.O.B"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtDOB"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lblDOB"
+            android:layout_alignBottom="@+id/lblDOB"
+            android:layout_alignStart="@+id/txtName"
+            android:ems="10"
+            android:text=""
+            android:inputType="none|number"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/cmdChangeDOB"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtHeight"
+            android:layout_alignTop="@+id/txtDOB"
+            android:text="Change"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lblTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblDOB"
+            android:layout_below="@+id/cmdChangeDOB"
+            android:text="Target"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cbTarget"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDOB"
+            android:layout_marginBottom="16dp"
+            android:layout_alignBaseline="@+id/lblTarget"
+            android:layout_alignBottom="@+id/lblTarget"
+            android:layout_alignStart="@+id/txtName"
+            android:layout_toEndOf="@+id/textView18"
+            android:entries="@array/TargetArray" />
+
+
+        <TextView
+            android:id="@+id/lblFitnessLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cbTarget"
+            android:layout_toStartOf="@+id/txtInitalWeight"
+            android:text="Fitness Level"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cbFitnessLevel"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDOB"
+            android:layout_marginBottom="16dp"
+            android:layout_alignBaseline="@+id/lblFitnessLevel"
+            android:layout_alignBottom="@+id/lblFitnessLevel"
+            android:layout_alignStart="@+id/txtCurrentWeight"
+            android:layout_toEndOf="@+id/textView18"
+            android:entries="@array/FitnessLevel" />
+
+        <TextView
+            android:id="@+id/lblRecCals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblCurrentWeight"
+            android:layout_below="@+id/lblFitnessLevel"
+            android:layout_marginTop="14dp"
+            android:text="Reccommeded Cals"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtRecCals"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cbFitnessLevel"
+            android:layout_toEndOf="@+id/lblRecCals"
+            android:ems="10"
+            android:inputType="none|number"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/lblBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblCurrentWeight"
+            android:layout_below="@+id/lblRecCals"
+            android:layout_marginTop="14dp"
+            android:text="Your BMI"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtBMI"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRecCals"
+            android:layout_toRightOf="@+id/lblBMI"
+            android:layout_alignEnd="@id/txtRecCals"
+            android:ems="10"
+            android:inputType="none|number"
+            android:textAlignment="textEnd" />
+
+
+
+
+        <Button
+            android:id="@+id/cmdEditSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="SetEditable"
+            android:text="Edit Profile" />
+
+        <Button
+            android:id="@+id/cmdCalcBodyFat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="CalculateBodyFat"
+            android:text="Calculate Body Fat" />
+
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/Exercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:text="Profile"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
