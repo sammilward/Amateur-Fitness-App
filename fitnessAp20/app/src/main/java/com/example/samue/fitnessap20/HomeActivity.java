@@ -35,17 +35,19 @@ public class HomeActivity extends AppCompatActivity {
         ArrayList<DailyFood> AllFoodData = new ArrayList();
         DailyFood CurDay = new DailyFood();
         AllFoodData = dm.GetDailyFood("2018-04-10");
+        //This value needs to be changed for date selected via a calander
 
 
 
-        int ConsumedCals = 0;
+        double TempConsumedCals = 0;
         //Loop to calculate calories ate on given date
         for (int i = 0; i < AllFoodData.size(); i++)
         {
             Food CurrentFood = new Food();
             CurrentFood = dm.GetFoodData(AllFoodData.get(i).FoodName);
-            ConsumedCals = ConsumedCals + (Integer.getInteger(CurrentFood.CaloriesPer100) * (Integer.getInteger(AllFoodData.get(i).AmountAte) / 100));
+            TempConsumedCals = TempConsumedCals + (Double.parseDouble(CurrentFood.CaloriesPer100) * (Double.parseDouble(AllFoodData.get(i).AmountAte) / 100));
         }
+        int ConsumedCals = (int) TempConsumedCals;
         lblCalsRemaining.setText("Cur Cals: "+ConsumedCals);
     }
 
