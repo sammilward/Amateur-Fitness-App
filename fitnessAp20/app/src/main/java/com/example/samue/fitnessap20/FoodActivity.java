@@ -7,19 +7,41 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+<<<<<<< HEAD
+=======
+import android.widget.RadioButton;
+import android.widget.Spinner;
+>>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FoodActivity extends AppCompatActivity {
+
     Button dateButton;
+<<<<<<< HEAD
     EditText date;
+=======
+    TextView date;
+    EditText txtFoodAmount;
+    Spinner cbFoodNames;
+    RadioButton rbBreakfast, rbLunch, rbDinner, rbSnack;
+
+>>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
     DatePickerDialog.OnDateSetListener dateListener; // Created a datePick Dialog with listener
+
+    ArrayList<Food> AllFood;
+    ArrayList<String> FoodNames = new ArrayList();
+
     int day, month, year;
 
+    DatabaseManager dm = new DatabaseManager(this);
 
 
     @Override
@@ -29,28 +51,38 @@ public class FoodActivity extends AppCompatActivity {
 
         date = (EditText)findViewById(R.id.date);
         dateButton = (Button)findViewById(R.id.dateButton);
+        cbFoodNames = (Spinner) findViewById(R.id.cbFoodNames);
+        txtFoodAmount = (EditText) findViewById(R.id.txtfoodAmount);
+
+        rbBreakfast = (RadioButton) findViewById(R.id.rbBreakfast);
+        rbLunch = (RadioButton) findViewById(R.id.rbLunch);
+        rbDinner = (RadioButton) findViewById(R.id.rbDinner);
+        rbSnack = (RadioButton) findViewById(R.id.rbSnack);
 
         Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
+<<<<<<< HEAD
 
 
+=======
+        date.setText("" + day + "/"+ (month+1) +"/" + year);
+        FoodNames.add("Select a food");
+        LoadUsersFood();
+        ArrayAdapter<String> Food_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FoodNames);
+        cbFoodNames.setAdapter(Food_adapter);
+>>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
 
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
 
                 DatePickerDialog dialog = new DatePickerDialog(FoodActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateListener,
                         year,month,day);
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-
-
-
 
             }
         });
@@ -83,12 +115,14 @@ public class FoodActivity extends AppCompatActivity {
     }
 
 
-    public void setDate(View view){
-
+    public void LoadUsersFood()
+    {
+        AllFood = dm.GetAllFood();
+        for (int i = 0; i < AllFood.size(); i++)
+        {
+            FoodNames.add(AllFood.get(i).FoodName);
+        }
     }
-
-
-
 
 
     public void addFood(View view) {
@@ -98,6 +132,57 @@ public class FoodActivity extends AppCompatActivity {
             Intent activity = new Intent(getApplication(), addNewFoodActivity.class);
 
             startActivity(activity);
+
+        }
+
+    }
+
+    public boolean Validated()
+    {
+        return true;
+    }
+
+    public void ClearForm()
+    {
+        rbBreakfast.setChecked(false);
+        rbLunch.setChecked(false);
+        rbDinner.setChecked(false);
+        rbSnack.setChecked(false);
+
+        txtFoodAmount.setText("");
+
+    }
+
+    public void AddDailyFood(View view)
+    {
+
+        if(Validated())
+        {
+            DailyFood NewEntry = new DailyFood();
+            NewEntry.FoodName = cbFoodNames.getSelectedItem().toString();
+            NewEntry.AmountAte = txtFoodAmount.getText().toString();
+            NewEntry.DateAte = "2018-04-10"; //date.getText().toString();
+
+            if(rbBreakfast.isChecked()){
+                NewEntry.Meal = "Breakfast";
+            }
+            else if (rbLunch.isChecked())
+            {
+                NewEntry.Meal = "Lunch";
+            }
+            else if (rbDinner.isChecked())
+            {
+                NewEntry.Meal = "Dinner";
+            }
+            else if (rbSnack.isChecked())
+            {
+                NewEntry.Meal = "Snack";
+            }
+            dm.AddDailyFood(NewEntry);
+            ClearForm();
+
+            Toast.makeText(this, "Food Added to your daily amount", Toast.LENGTH_LONG).show();
+
 
         }
 

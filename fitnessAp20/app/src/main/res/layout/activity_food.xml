@@ -68,7 +68,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/foodAmount"
+                android:id="@+id/txtfoodAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -84,15 +84,16 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_margin="5dp">
 
                 <RadioGroup
-                    android:layout_width="381dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/radioButton5"
+                        android:id="@+id/rbBreakfast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -101,7 +102,7 @@
                         android:textColor="#000000" />
 
                     <RadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/rbLunch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -110,7 +111,7 @@
                         android:textColor="#000000" />
 
                     <RadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/rbDinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -119,7 +120,7 @@
                         android:textColor="#000000" />
 
                     <RadioButton
-                        android:id="@+id/radioButton6"
+                        android:id="@+id/rbSnack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -131,13 +132,16 @@
 
             </TableRow>
 
-            <EditText
-                android:id="@+id/searchFoodName"
+
+
+            <Spinner
+                android:id="@+id/cbFoodNames"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="enter the name of the item"
-                android:inputType="textPersonName" />
+                android:layout_height="40dp"
+                android:layout_above="@+id/textView19"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@+id/textView18"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -152,10 +156,9 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="0dp"
-                    android:background="#f4f4f0"
                     android:gravity="center_vertical"
-                    android:text='"search now"'
-                    android:textColor="#000000" />
+                    android:text='Add daily food'
+                    android:onClick="AddDailyFood"/>
 
                 <TextView
                     android:id="@+id/textView7"

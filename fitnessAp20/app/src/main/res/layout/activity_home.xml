@@ -20,6 +20,23 @@
             android:text="Home"
             android:textSize="30sp" />
 
+        <TextView
+            android:id="@+id/lblCalsAte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/progressBar"
+            android:layout_alignStart="@+id/progressBar"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:id="@+id/lblCalsRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/progressBar"
+            android:layout_alignEnd="@+id/progressBar"
+            android:layout_marginBottom="22dp" />
+
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -27,7 +44,26 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="52dp" />
+            android:layout_marginTop="52dp"/>
+
+        <TextView
+            android:id="@+id/lblRemaingCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:id="@+id/lblDayFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblRemaingCalories"
+            android:layout_alignStart="@id/progressBar"
+            android:text="Food:"
+            android:textSize="17sp"
+            android:layout_marginBottom="22dp" />
+
 
 
 
@@ -45,6 +81,16 @@
             tools:layout_editor_absoluteY="503dp" />
 
         <Button
+            android:id="@+id/exerciseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/profileButton"
+            android:layout_alignBottom="@+id/profileButton"
+            android:layout_centerHorizontal="true"
+            android:onClick="pressedButton"
+            android:text="Exercise" />
+
+        <Button
             android:id="@+id/foodButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,15 +103,9 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="503dp" />
 
-        <Button
-            android:id="@+id/exerciseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/profileButton"
-            android:layout_alignBottom="@+id/profileButton"
-            android:layout_centerHorizontal="true"
-            android:onClick="pressedButton"
-            android:text="Exercise" />
+
+
+
 
 
 
