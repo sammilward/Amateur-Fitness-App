@@ -36,11 +36,13 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <EditText
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp" />
+                    android:ems="10"
+                    android:inputType="none"
+                    android:enabled="false"/>
 
             </TableRow>
 

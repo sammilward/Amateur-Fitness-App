@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         loadData();
     }
 
-    protected void loadData()
+    public void loadData()
     {
         lblCurrentUser.setText(dm.GetUsersDetails().Name);
     }

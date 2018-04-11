@@ -24,7 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     Spinner cbTarget;
     Button dateButton;
-    TextView DOB;
+
     DatePickerDialog.OnDateSetListener dateListener; // Created a datePick Dialog with listener
     int day, month, year;
     DatabaseManager dm = new DatabaseManager(this);
@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         //initializing all the TextViews
         txtName = (EditText)findViewById(R.id.name);
         txtHeight = (EditText)findViewById(R.id.height);
-        DOB = (TextView)findViewById(R.id.DOB);
+        txtDOB = (EditText)findViewById(R.id.DOB);
         txtWeight = (EditText)findViewById(R.id.weight);
         cbTarget = (Spinner)findViewById(R.id.cbTarget);
 
@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
                 day = calendar.get(Calendar.DAY_OF_MONTH);
                 month = calendar.get(Calendar.MONTH);
                 year = calendar.get(Calendar.YEAR);
-                DOB.setText("" + day + "/"+ (month+1) +"/" + year);
+
 
                 DatePickerDialog dialog = new DatePickerDialog(SignUpActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateListener,
                         year,month,day);
@@ -86,8 +86,20 @@ public class SignUpActivity extends AppCompatActivity {
 
         dateListener = new DatePickerDialog.OnDateSetListener(){
             public void onDateSet(DatePicker datePicker, int year, int month, int day){
+              String sDay ="";
+               String sMonth= "";
+               month = month + 1;
+                if(day < 10){
+                    sDay = "0" + day;
+                }
+                else sDay = "" + day;
+                if( month < 10){
+                    sMonth= "0" + month;
+                }else sMonth = "" + month;
 
-                DOB.setText("" + day + "/"+ (month+1) +"/" + year);
+
+               txtDOB.setText("" + year + "/"+sMonth+"/"+sDay);
+
             }
         };
 
@@ -97,15 +109,6 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-    public void setDOB(View view){
-
-
-
-
-
-
-
-    }
 
 
 
@@ -181,10 +184,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 Intent activity = new Intent(getApplication(), MainActivity.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putString("name", txtName.toString());
 
-                //activity.putExtras(bundle);
 
                 startActivity(activity);
 

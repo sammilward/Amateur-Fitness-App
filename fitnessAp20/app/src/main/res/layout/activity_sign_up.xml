@@ -85,16 +85,14 @@
                     android:hint="Height CMs"
                     android:inputType="phone" />
 
-                <TextView
+                <EditText
                     android:id="@+id/DOB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abril_fatface"
-                    android:paddingLeft="10dp"
-                    android:text="dd/mm/year"
-                    android:textAlignment="textStart"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
             </GridLayout>
 
             <LinearLayout

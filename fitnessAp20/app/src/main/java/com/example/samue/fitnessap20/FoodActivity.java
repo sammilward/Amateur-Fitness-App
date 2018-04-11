@@ -9,13 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Calendar;
 
 public class FoodActivity extends AppCompatActivity {
     Button dateButton;
-    TextView date;
+    EditText date;
     DatePickerDialog.OnDateSetListener dateListener; // Created a datePick Dialog with listener
     int day, month, year;
 
@@ -26,14 +27,13 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
-        date = (TextView)findViewById(R.id.date);
+        date = (EditText)findViewById(R.id.date);
         dateButton = (Button)findViewById(R.id.dateButton);
 
         Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
-        date.setText("" + day + "/"+ (month+1) +"/" + year);
 
 
 
@@ -60,7 +60,19 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day){
 
-                date.setText("" + day + "/"+ (month+1) +"/" + year);
+                String sDay;
+                String sMonth;
+                month = month + 1;
+                if(day < 10){
+                    sDay = "0" + day;
+                }
+                else sDay = "" + day;
+                if( month < 10){
+                    sMonth= "0" + month;
+                }else sMonth = "" + month;
+
+
+                date.setText("" + year + "/"+ sMonth +"/" + sDay);
             }
         };
 
