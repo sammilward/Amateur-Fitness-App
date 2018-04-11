@@ -11,29 +11,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-<<<<<<< HEAD
-=======
 import android.widget.RadioButton;
 import android.widget.Spinner;
->>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FoodActivity extends AppCompatActivity {
 
     Button dateButton;
-<<<<<<< HEAD
     EditText date;
-=======
-    TextView date;
     EditText txtFoodAmount;
     Spinner cbFoodNames;
     RadioButton rbBreakfast, rbLunch, rbDinner, rbSnack;
 
->>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
+
     DatePickerDialog.OnDateSetListener dateListener; // Created a datePick Dialog with listener
 
     ArrayList<Food> AllFood;
@@ -63,16 +56,13 @@ public class FoodActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
-<<<<<<< HEAD
 
-
-=======
         date.setText("" + day + "/"+ (month+1) +"/" + year);
         FoodNames.add("Select a food");
         LoadUsersFood();
         ArrayAdapter<String> Food_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FoodNames);
         cbFoodNames.setAdapter(Food_adapter);
->>>>>>> 0f67d7d7d4c4525b8b291a16f02ff5c12b3769ae
+
 
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
