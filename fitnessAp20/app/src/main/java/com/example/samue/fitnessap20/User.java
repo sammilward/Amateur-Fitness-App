@@ -1,5 +1,9 @@
 package com.example.samue.fitnessap20;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by samal on 12/03/2018.
  */
@@ -37,7 +41,7 @@ public class User {
 
     public int CalculateRecommendedCalories()
     {
-        int Age = GetUserAge(); // Should equal to function call to calculate age from birthday //Belive james is writting this
+        int Age = CalculateAge(); // Should equal to function call to calculate age from birthday //Belive james is writting this
         int CalsRecommended = 0;
         double FitL = GetFitnessMultiplier();
 
@@ -125,11 +129,44 @@ public class User {
         return  Level;
     }
 
-    private int GetUserAge()
+    private int CalculateAge()
     {
-        int Age = 19;
+
+        Date date = new Date();
+        int Age = 0;
+        //Get the values of the DOB that has been passed
+        int Year = Integer.parseInt(DOB.substring(0, 4));
+        int Month = Integer.parseInt(DOB.substring(5, 7));
+        int Day = Integer.parseInt(DOB.substring(8, 10));
+
+        //Get current date
+        int CurYear, CurMonth, CurDay;
+        DateFormat dateFormatYear = new SimpleDateFormat("yyyy");
+        CurYear = Integer.parseInt(dateFormatYear.format(date));
+
+        DateFormat dateFormatMonth = new SimpleDateFormat("MM");
+        CurMonth = Integer.parseInt(dateFormatMonth.format(date));
+
+        DateFormat dateFormatDay = new SimpleDateFormat("dd");
+        CurDay = Integer.parseInt(dateFormatDay.format(date));
+
+        //Age = difference in years
+        Age = CurYear - Year;
+        //If DOB month larger than current yeara remove a year from age
+        if (Month>CurMonth)
+        {
+            Age = Age - 1;
+        }
+        //If they are equal check days
+        else if (Month==CurMonth)
+        {
+            //If DOBDay bigger than current day, then remove year from age
+            if (Day>CurDay)
+            {
+                Age = Age - 1;
+            }
+        }
         return Age;
-        //Function needs to get age from DOB provided
     }
 
 }

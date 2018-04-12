@@ -37,6 +37,11 @@ public class FoodActivity extends AppCompatActivity {
     DatabaseManager dm = new DatabaseManager(this);
 
 
+    public void onRestart() {
+        super.onRestart();
+        LoadUsersFood();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,6 +143,8 @@ public class FoodActivity extends AppCompatActivity {
         rbLunch.setChecked(false);
         rbDinner.setChecked(false);
         rbSnack.setChecked(false);
+
+        cbFoodNames.setSelection(0);
 
         txtFoodAmount.setText("");
 

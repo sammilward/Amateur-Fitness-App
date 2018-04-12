@@ -18,6 +18,10 @@ public class ProfileActivity extends AppCompatActivity {
     DatabaseManager dm = new DatabaseManager(this);
 
 
+    public void onRestart() {
+        super.onRestart();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

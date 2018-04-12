@@ -21,6 +21,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private int ProgressVal;
 
+    public void onRestart() {
+        super.onRestart();
+        LoadData();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,26 +81,33 @@ public class HomeActivity extends AppCompatActivity {
         //Remaing calories to consume
         Double Remaining = Double.parseDouble(CurUser.CaloriesToConsume) - TempConsumedCals;
         int CalsRemaining = Remaining.intValue();
+
+
+        //If user calories intake below 50 % of rec then turn RED
         if (ProgressVal < 50)
         {
             lblRemainingCals.setTextColor(Color.RED);
             CalProgress.setProgressTintList(ColorStateList.valueOf(Color.RED));
         }
+        //If user calories intake between 50-75 % of rec then turn ORANGE
         else if (ProgressVal < 75)
         {
-            lblRemainingCals.setTextColor(Color.YELLOW);
-            CalProgress.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+            lblRemainingCals.setTextColor(Color.rgb(255,165,0));
+            CalProgress.setProgressTintList(ColorStateList.valueOf(Color.rgb(255,165,0)));
         }
+        //If user calories intake between 75 - 100 % of rec then turn GREEN
         else if(ProgressVal < 100)
         {
             lblRemainingCals.setTextColor(Color.GREEN);
             CalProgress.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
         }
+        //if user cals over rec by less than 5% then turn ORANGE
         else if(ProgressVal < 105)
         {
             lblRemainingCals.setTextColor(Color.rgb(255,165,0));
             CalProgress.setProgressTintList(ColorStateList.valueOf(Color.rgb(255,165,0)));
         }
+        //If user over rec calories more than 5% then turn RED;
         else
         {
             lblRemainingCals.setTextColor(Color.RED);

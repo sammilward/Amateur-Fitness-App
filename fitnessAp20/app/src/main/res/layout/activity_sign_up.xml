@@ -89,6 +89,8 @@
                     android:id="@+id/DOB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:hint="DOB"
                     android:ems="10"
                     android:enabled="false"
                     android:inputType="none" />
