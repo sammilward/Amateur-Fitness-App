@@ -1,5 +1,6 @@
 package com.example.samue.fitnessap20;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +18,6 @@ public class ProfileActivity extends AppCompatActivity {
     boolean EditClicked = false;
     DatabaseManager dm = new DatabaseManager(this);
 
-
-    public void onRestart() {
-        super.onRestart();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,6 +191,9 @@ public class ProfileActivity extends AppCompatActivity {
         }
         UpdatedUser.CalculateRecommendedCalories();
         dm.SetUserDetails(UpdatedUser);
+        dm.ResultWeight(UpdatedUser.CurrentWeight);
+        dm.ResultBMI(Double.toString(UpdatedUser.CalculateBMI()));
+
         LoadData();
     }
 
@@ -204,8 +204,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     //New activity that opens that allows users to input info to add body fat results
-    public void CalculateBodyFat(View view)
-    {
+    public void LoadBodyFat(View view){
+
+
+        Intent intent = new Intent(this, BodyFat.class);
+        startActivity(intent);
 
     }
 }

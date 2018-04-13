@@ -21,11 +21,13 @@
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".FoodActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".addNewFoodActivity"></activity>
+        <activity android:name=".addNewFoodActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".BodyFat"></activity>
     </application>
 
 </manifest>

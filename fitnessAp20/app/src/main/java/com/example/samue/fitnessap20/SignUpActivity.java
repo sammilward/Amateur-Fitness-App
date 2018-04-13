@@ -177,10 +177,8 @@ public class SignUpActivity extends AppCompatActivity {
                 NewUser.CalculateRecommendedCalories();
                 dm.refreshDatabase();
                 dm.SetUserDetails(NewUser);
-
-
-
-
+                dm.ResultWeight(NewUser.CurrentWeight);
+                dm.ResultBMI(Double.toString(NewUser.CalculateBMI()));
 
 
                 Intent activity = new Intent(getApplication(), MainActivity.class);
@@ -206,19 +204,19 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     public boolean verifyData(){
-        if(txtName.getText().length() <= 0 || txtName.getText().length() < 2) {
-            Toast.makeText(this, "The name must be 2 or more letters", Toast.LENGTH_LONG).show();
+        if(txtName.getText().length() < 2) {
+            Toast.makeText(this, "Enter a name at least 2 letters long", Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(txtDOB.getText().length() < 10) {
-            Toast.makeText(this, "Please enter your DOB  (day/month/year) eg 03/12/1995", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please select your DOB", Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(txtHeight.getText().length() > 0) {
             if (Integer.valueOf(txtHeight.getText().toString()) > 250) {
-                Toast.makeText(this, "Please enter your height in cm", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Enter your height in cm, below 250", Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -232,7 +230,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         if(txtWeight.getText().length() > 0) {
             if (Integer.valueOf(txtWeight.getText().toString()) <= 20 || Integer.valueOf(txtWeight.getText().toString()) > 250) {
-                Toast.makeText(this, "Please enter your weight in Kg", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Enter your weight in Kg between 20-250", Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -243,7 +241,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
 
-        if(!rbMale.isChecked() && !rbMale.isChecked()){
+        if(!rbMale.isChecked() && !rbFemale.isChecked()){
             Toast.makeText(this, "Please select your gender", Toast.LENGTH_LONG).show();
             return false;
         }

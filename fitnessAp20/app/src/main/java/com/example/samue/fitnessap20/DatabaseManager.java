@@ -689,7 +689,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
     {
         AddResultRow();
         try {
-            //AddResultRow();
+
             database = this.getWritableDatabase();
             ContentValues Values = new ContentValues();
             Values.put("Weight", Weight);

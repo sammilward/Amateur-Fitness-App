@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.samue.fitnessap20.BodyFat">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:paddingBottom="30sp"
+            android:paddingEnd="35sp"
+            android:paddingStart="35sp"
+            android:text="Calcaulate Body Fat"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblWaistGirth"
+            android:layout_alignStart="@id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30sp"
+            android:text="Waist Girth:"
+            android:textSize="20sp"
+            android:layout_below="@id/lblTitle"
+            />
+
+        <EditText
+            android:id="@+id/txtWaistGirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="INCHs"
+            android:layout_alignBaseline="@id/lblWaistGirth"
+            android:layout_toRightOf="@id/lblWaistGirth"
+            android:textAlignment="textEnd"
+            android:layout_alignEnd="@id/lblTitle"/>
+
+        <TextView
+            android:id="@+id/lblWristCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/lblWaistGirth"
+            android:text="Wrist Circumference:"
+            android:textSize="20sp"
+            android:paddingBottom="30sp"
+            android:layout_below="@id/lblWaistGirth"
+            android:visibility="invisible"
+            />
+
+        <EditText
+            android:id="@+id/txtWristCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="INCHS"
+            android:textAlignment="textEnd"
+            android:layout_alignBaseline="@id/lblWristCir"
+            android:layout_toRightOf="@id/lblWristCir"
+            android:layout_alignEnd="@id/lblTitle"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lblHipCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hip Circumference:"
+            android:layout_alignStart="@id/lblWristCir"
+            android:paddingBottom="30sp"
+            android:textSize="20sp"
+            android:layout_below="@id/lblWristCir"
+            android:visibility="invisible"
+            />
+
+        <EditText
+            android:id="@+id/txtHipCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:hint="INCHS"
+            android:layout_alignBaseline="@id/lblHipCir"
+            android:layout_toRightOf="@id/lblHipCir"
+            android:layout_alignEnd="@id/lblTitle"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lblForarmCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forearm Circumference:"
+            android:layout_alignStart="@id/lblHipCir"
+            android:paddingBottom="30sp"
+            android:textSize="20sp"
+            android:layout_below="@id/lblHipCir"
+            android:visibility="invisible"
+            />
+
+        <EditText
+            android:id="@+id/txtForarmCir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:hint="INCHS"
+            android:layout_alignBaseline="@id/lblForarmCir"
+            android:layout_toRightOf="@id/lblForarmCir"
+            android:layout_alignEnd="@id/lblTitle"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/cmdCalculateBF"
+            android:text="Calculate your body fat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblForarmCir"
+            android:layout_alignStart="@id/lblForarmCir"
+            android:layout_alignEnd="@id/txtForarmCir"
+            android:onClick="Calculate"/>
+
+        <TextView
+            android:id="@+id/lblBodyFat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cmdCalculateBF"
+            android:layout_alignStart="@id/cmdCalculateBF"
+            android:layout_alignEnd="@id/cmdCalculateBF"
+            android:visibility="invisible"
+            android:textSize="25sp"
+            android:paddingTop="50sp"/>
+
+
+
+
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

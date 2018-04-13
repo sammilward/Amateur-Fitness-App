@@ -12,6 +12,11 @@ public class MainActivity extends AppCompatActivity {
     DatabaseManager dm = new DatabaseManager(this);
     TextView lblCurrentUser;
 
+    public void onRestart() {
+        super.onRestart();
+        loadData();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
