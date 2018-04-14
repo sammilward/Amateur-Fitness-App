@@ -10,6 +10,11 @@
         <item>Lose 2 lb a week</item>
     </string-array>
 
+    <string-array name="ExerciseChoice">
+        <item>Fitness Level Required</item>
+        <item>Primary Muscle Targeted</item>
+    </string-array>
+
     <string-array name="FitnessLevel">
         <item>1</item>
         <item>2</item>
@@ -18,5 +23,11 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="MuscleTargets">
+        <item>Arms</item>
+        <item>Legs</item>
+        <item>Abs</item>
+        <item>Chest</item>
+    </string-array>
 
 </resources>

@@ -6,173 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.samue.fitnessap20.ExerciseActivity">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/textView5"
-            android:layout_marginLeft="0dp"
-            android:layout_centerHorizontal="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Wall Pushups"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_alignTop="@+id/scrollView2"
-                    android:layout_toEndOf="@+id/textView5"/>
-                    //android:background="@drawable/image091"
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Air Squats"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/airsquat" />
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pushups"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/image095" />
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button12"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/doorrow" />
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/image083" />
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button14"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/staticlunge" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button15"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/invertedrow" />
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button16"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/staticlunge" />
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button17"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/shouldersandfeetelevatedhipraise" />
-
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/button18"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"/>
-                    //android:background="@drawable/hindupushup" />
-
-            </LinearLayout>
-        </ScrollView>
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="97dp"
-            android:fontFamily="casual"
-            android:text="Muscle Groups"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-
     <TextView
         android:id="@+id/Exercise"
         android:layout_width="wrap_content"
@@ -184,5 +17,84 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/lblSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:fontFamily="casual"
+            android:text="Find    Exercises    by:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/cbLevelMuscle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/ExerciseChoice"
+            android:layout_below="@id/lblSubTitle"></Spinner>
+
+        <Spinner
+            android:id="@+id/cbFindBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/cbLevelMuscle"
+            android:layout_alignEnd="@id/cbLevelMuscle"
+            android:entries="@array/FitnessLevel"
+            android:paddingTop="20sp"
+            android:layout_below="@id/cbLevelMuscle"></Spinner>
+
+        <Button
+            android:id="@+id/cmdSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:layout_alignStart="@id/lblSubTitle"
+            android:layout_alignEnd="@id/lblSubTitle"
+            android:layout_below="@id/cbFindBy"
+            android:text="Search"
+            android:onClick="CreateTextAndButtons"/>
+
+        <ScrollView
+            android:id="@+id/scExercies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20sp"
+            android:layout_below="@+id/cmdSearch"
+
+            android:layout_marginLeft="0dp"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:id="@+id/ScrollLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>

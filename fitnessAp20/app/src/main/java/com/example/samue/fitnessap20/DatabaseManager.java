@@ -191,7 +191,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
         return Temp;
     }
     //Gets ArrayList on Exercises based on Primary Muscle
-    public ArrayList<Exercise> GetExercisesOnMuscle (Exercise Ex)
+    public ArrayList<Exercise> GetExercisesOnMuscle (String Muscle)
     {
         ArrayList<Exercise> Exercises = new ArrayList();
 
@@ -207,7 +207,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
             //String having
             //String orderBy
             String[] Cols = {"ExerciseName", "FitnessLevelReq", "PrimaryMuscle", "PhotoPath", "Description"};
-            Cursor cursor = database.query(ExerciseTable, Cols, "PrimaryMuscle = '" + Ex.PrimaryMuscle + "'" ,null,null,null, null);
+            Cursor cursor = database.query(ExerciseTable, Cols, "PrimaryMuscle = '" + Muscle + "'" ,null,null,null, null);
             while (cursor.moveToNext())
             {
                 Exercise Temp = new Exercise();
@@ -231,7 +231,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
         return Exercises;
     }
     //Gets ArrayList on Exercises based on FitnessLevelReq
-    public ArrayList<Exercise> GetExercisesOnFitnessLevel (Exercise Ex)
+    public ArrayList<Exercise> GetExercisesOnFitnessLevel (String Level)
     {
         ArrayList<Exercise> Exercises = new ArrayList();
 
@@ -247,7 +247,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
             //String having
             //String orderBy
             String[] Cols = {"ExerciseName", "FitnessLevelReq", "PrimaryMuscle", "PhotoPath", "Description"};
-            Cursor cursor = database.query(ExerciseTable, Cols, "FitnessLevelReq = '" + Ex.FitnessLevelReq + "'" ,null,null,null, null);
+            Cursor cursor = database.query(ExerciseTable, Cols, "FitnessLevelReq = '" + Level + "'" ,null,null,null, null);
             while (cursor.moveToNext())
             {
                 Exercise Temp = new Exercise();
