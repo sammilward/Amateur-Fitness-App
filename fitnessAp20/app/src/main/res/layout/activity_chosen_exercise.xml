@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.samue.fitnessap20.ChosenExercise">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/lblExerciseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20sp"
+                android:text="Exercise Name"
+                android:layout_centerHorizontal="true"
+                android:textSize="25sp"/>
+            
+            <Button
+                android:id="@+id/cmdImage"
+                android:layout_width="300sp"
+                android:layout_height="300sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/lblExerciseName"/>
+            
+            <TextView
+                android:id="@+id/lblExercisePrimaryMuscle"
+                android:layout_below="@+id/cmdImage"
+                android:paddingTop="5sp"
+                android:layout_alignStart="@id/cmdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"/>
+
+            <TextView
+                android:id="@+id/lblFitLevelReq"
+                android:paddingTop="5sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblExercisePrimaryMuscle"
+                android:layout_alignStart="@id/cmdImage"
+                android:textSize="19sp"
+                android:text="Fitness Level Required: "/>
+
+            <TextView
+                android:id="@+id/lblDescriptionTitle"
+                android:paddingTop="5sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblFitLevelReq"
+                android:layout_alignStart="@id/cmdImage"
+                android:text="Description"
+
+                android:textSize="19sp"/>
+
+            <TextView
+                android:id="@+id/lblDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblDescriptionTitle"
+                android:layout_alignStart="@id/cmdImage"
+                android:layout_alignEnd="@+id/cmdImage"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/txtDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/cmdImage"
+                android:layout_alignStart="@id/cmdImage"
+                android:layout_below="@id/lblDescription"
+                android:hint="Duration of exercise completed in minutes"
+                android:inputType="number"
+                android:paddingLeft="0sp" />
+
+            <EditText
+                android:id="@+id/txtCaloriesBurnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/cmdImage"
+                android:layout_alignStart="@id/cmdImage"
+                android:layout_below="@id/txtDuration"
+                android:hint="Calories Burnt"
+                android:inputType="number"
+                android:paddingLeft="0sp" />
+
+            <Button
+                android:id="@+id/cmdAddExerciseDaily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/cmdImage"
+                android:layout_alignEnd="@+id/cmdImage"
+                android:layout_below="@id/txtCaloriesBurnt"
+                android:text="Add Exercise"
+                android:onClick="AddExercise"/>
+            
+            
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -27,7 +27,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".BodyFat"></activity>
+        <activity android:name=".BodyFat" />
+        <activity android:name=".ChosenExercise"></activity>
     </application>
 
 </manifest>

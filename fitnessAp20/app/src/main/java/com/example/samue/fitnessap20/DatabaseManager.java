@@ -157,7 +157,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
         }
     }
     //Gets all Exercise Data based on Exercise name WORKS
-    public Exercise GetExerciseData(Exercise Ex)
+    public Exercise GetExerciseData(String Name)
     {
         Exercise Temp = new Exercise();
         //String SQLQuery = "SELECT * FROM " + dailyFoodTable + " WHERE DateAte = '" + Date + "';";
@@ -172,7 +172,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
             //String having
             //String orderBy
             String[] Cols = {"ExerciseName", "FitnessLevelReq", "PrimaryMuscle", "PhotoPath", "Description"};
-            Cursor cursor = database.query(ExerciseTable, Cols, "ExerciseName = '" + Ex.ExerciseName + "'" ,null,null,null,null);
+            Cursor cursor = database.query(ExerciseTable, Cols, "ExerciseName = '" + Name + "'" ,null,null,null,null);
             cursor.moveToFirst();
             Temp.ExerciseName = cursor.getString(cursor.getColumnIndex("ExerciseName"));
             Temp.FitnessLevelReq = cursor.getString(cursor.getColumnIndex("FitnessLevelReq"));

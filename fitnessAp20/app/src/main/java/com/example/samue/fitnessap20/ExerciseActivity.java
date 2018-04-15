@@ -1,5 +1,6 @@
 package com.example.samue.fitnessap20;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 public class ExerciseActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "com.example.samue.fitnessap20.MESSAGE";
     ScrollView scExercies;
     LinearLayout ScrollLinear;
     Spinner cbLevelMuscle, cbFindBy;
@@ -208,12 +212,13 @@ public class ExerciseActivity extends AppCompatActivity {
             }
 
             ScrollLinear.addView(btn, params);
+            final ArrayList<Exercise> finalExercises = Exercises;
             btn1 = ((Button) findViewById(id_));
             btn1.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(),
-                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-                            .show();
+                    Intent intent = new Intent(ExerciseActivity.this, ChosenExercise.class);
+                    intent.putExtra(EXTRA_MESSAGE, finalExercises.get(id_).ExerciseName);
+                    startActivity(intent);
                 }
             });
         }
@@ -378,11 +383,13 @@ public class ExerciseActivity extends AppCompatActivity {
 
             ScrollLinear.addView(btn, params);
             btn1 = ((Button) findViewById(id_));
+            final ArrayList<Exercise> finalExercises = Exercises;
             btn1.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(),
-                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-                            .show();
+                    Intent intent = new Intent(ExerciseActivity.this, ChosenExercise.class);
+                    intent.putExtra(EXTRA_MESSAGE, finalExercises.get(id_).ExerciseName);
+                    startActivity(intent);
+
                 }
             });
         }
