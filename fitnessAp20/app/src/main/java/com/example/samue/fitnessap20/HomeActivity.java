@@ -10,9 +10,13 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,10 +24,12 @@ import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView lblCalsAte, lblCalsRec, lblRemainingCals, lbldate;
+    TextView lblCalsAte, lblCalsRec, lblRemainingCals, lbldate, lblMeal, lblFoodName, lblCalories, lblExName, lblDuration, lblCalBurnt;
     DatabaseManager dm = new DatabaseManager(this);
     ProgressBar CalProgress;
-    Button ChangeDate;
+    Button ChangeDate, cmdRemoveFood, cmdRemoveExercise;
+    TableLayout FoodTable, ExerciseTable;
+    TableRow CurRow, CurRow2;
 
     DatePickerDialog.OnDateSetListener dateListener;
 
@@ -49,6 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         CalProgress = (ProgressBar) findViewById(R.id.progressBar);
 
         ChangeDate = (Button)findViewById(R.id.cmdChangeDate);
+
+        FoodTable = (TableLayout) findViewById(R.id.FoodTable);
+        ExerciseTable = (TableLayout) findViewById(R.id.ExerciseTable);
 
         Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
         day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -118,10 +127,14 @@ public class HomeActivity extends AppCompatActivity {
         lblCalsRec.setText("Target Cals: "+CurUser.CaloriesToConsume);
 
         ArrayList<DailyFood> AllFoodData = new ArrayList();
+        ArrayList<ExerciseDaily> AllExerciseData = new ArrayList();
         DailyFood CurDay = new DailyFood();
         AllFoodData = dm.GetDailyFood(lbldate.getText().toString());
-        //This value needs to be changed for date selected via a calander
+        AllExerciseData = dm.GetExerciseDaily(lbldate.getText().toString());
 
+        ResetFoodTable();
+        ResetExerciseTable();
+        //This value needs to be changed for date selected via a calander
 
 
         double TempConsumedCals = 0;
@@ -131,11 +144,104 @@ public class HomeActivity extends AppCompatActivity {
         {
             Food CurrentFood = new Food();
             CurrentFood = dm.GetFoodData(AllFoodData.get(i).FoodName);
-            TempConsumedCals = TempConsumedCals + (Double.parseDouble(CurrentFood.CaloriesPer100) * (Double.parseDouble(AllFoodData.get(i).AmountAte) / 100));
+            double CalsAte = Double.parseDouble(CurrentFood.CaloriesPer100) * (Double.parseDouble(AllFoodData.get(i).AmountAte) / 100);
+            int CalsAte2 = (int) CalsAte;
+            TempConsumedCals = TempConsumedCals + CalsAte;
+
+            CurRow = new TableRow(this);
+
+            lblMeal = new TextView(this);
+            lblMeal.setText(AllFoodData.get(i).Meal);
+            CurRow.addView(lblMeal);
+
+            lblFoodName = new TextView(this);
+            lblFoodName.setText(CurrentFood.FoodName);
+            CurRow.addView(lblFoodName);
+
+            lblCalories = new TextView(this);
+            lblCalories.setText(""+CalsAte2);
+            CurRow.addView(lblCalories);
+
+            cmdRemoveFood = new Button(this);
+            cmdRemoveFood.setId(i);
+
+            final int id_ = cmdRemoveFood.getId();
+
+            final DailyFood food = new DailyFood();
+            food.DateAte = lbldate.getText().toString();
+            food.Meal = AllFoodData.get(i).Meal;
+            food.FoodName = CurrentFood.FoodName;
+
+            cmdRemoveFood.setText("x");
+            cmdRemoveFood.setLayoutParams(new TableRow.LayoutParams(100,100));
+            cmdRemoveFood.setBackgroundColor(Color.rgb(230,0,0));
+            cmdRemoveFood.setPadding(0,0,10,10);
+
+
+            cmdRemoveFood.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    dm.RemoveDailyFood(food);
+                    LoadData();
+                }
+            });
+
+            CurRow.addView(cmdRemoveFood);
+
+            FoodTable.addView(CurRow);
+
+
         }
 
         //Loop here to calculate all calories burnt
         //Remove figure from TempConsumedCals
+
+        for (int i = 0; i < AllExerciseData.size(); i++)
+        {
+            TempConsumedCals = TempConsumedCals - Double.parseDouble(AllExerciseData.get(i).CaloriesBurnt);
+
+            CurRow2 = new TableRow(this);
+
+            lblExName = new TextView(this);
+            lblExName.setText(AllExerciseData.get(i).ExerciseName);
+            lblExName.setMaxWidth(100);
+            CurRow2.addView(lblExName);
+
+            lblDuration = new TextView(this);
+            lblDuration.setText(AllExerciseData.get(i).Duration);
+            CurRow2.addView(lblDuration);
+
+            lblCalBurnt = new TextView(this);
+            lblCalBurnt.setText(AllExerciseData.get(i).CaloriesBurnt);
+            CurRow2.addView(lblCalBurnt);
+
+            cmdRemoveExercise = new Button(this);
+            cmdRemoveExercise.setId(i);
+
+            final int id_ = cmdRemoveExercise.getId();
+
+            final ExerciseDaily Ex = new ExerciseDaily();
+            Ex.DateExercised = lbldate.getText().toString();
+            Ex.ExerciseName = AllExerciseData.get(i).ExerciseName;
+
+            cmdRemoveExercise.setText("x");
+            cmdRemoveExercise.setLayoutParams(new TableRow.LayoutParams(100,100));
+            cmdRemoveExercise.setBackgroundColor(Color.rgb(230,0,0));
+            cmdRemoveExercise.setPadding(0,0,10,10);
+
+
+            cmdRemoveExercise.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    dm.RemoveExerciseDaily(Ex);
+                    LoadData();
+                }
+            });
+
+            CurRow2.addView(cmdRemoveExercise);
+
+            ExerciseTable.addView(CurRow2);
+
+        }
+
 
         int ConsumedCals = (int) TempConsumedCals;
         lblCalsAte.setText("Current Cals: "+ConsumedCals);
@@ -184,6 +290,28 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+
+    public void ResetFoodTable()
+    {
+        int count = FoodTable.getChildCount();
+        for (int i = 1; i < count; i++) {
+            View child = FoodTable.getChildAt(i);
+            if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
+        }
+
+    }
+
+
+    public void ResetExerciseTable()
+    {
+        int count = ExerciseTable.getChildCount();
+        for (int i = 1; i < count; i++) {
+            View child = ExerciseTable.getChildAt(i);
+            if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
+        }
+
+    }
 
     //Switch from one screen to another
     public void pressedButton(View view){

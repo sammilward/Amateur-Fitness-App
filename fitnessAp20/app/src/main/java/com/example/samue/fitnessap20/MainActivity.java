@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lblCurrentUser = (TextView)findViewById(R.id.lblCurrentUser);
         loadData();
+
     }
 
     public void loadData()

@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     tools:context="com.example.samue.fitnessap20.HomeActivity">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="0dp"
             android:text="Home"
             android:textSize="30sp"
             android:paddingBottom="10sp"/>
@@ -83,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/progressBar"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="22dp" />
+            android:layout_marginBottom="0dp" />
 
         <TextView
             android:id="@+id/lblDayFood"
@@ -93,8 +95,181 @@
             android:layout_alignStart="@id/progressBar"
             android:text="Food:"
             android:textSize="17sp"
-            android:layout_marginBottom="22dp" />
+            android:layout_marginBottom="1dp" />
 
+        <TableLayout
+            android:id="@+id/FoodTableHeaders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblDayFood"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_alignEnd="@id/progressBar">
+
+            <TableRow>
+
+
+                <TextView
+                    android:text="Meal"
+                    android:paddingRight="50sp"/>
+
+                <TextView
+                    android:text="Food Name"
+                    android:paddingRight="50sp"/>
+
+                <TextView
+                    android:text="Calories"
+                    android:paddingRight="50sp"/>
+
+
+            </TableRow>
+
+        </TableLayout>
+
+
+        <ScrollView
+            android:id="@+id/ScrollFood"
+            android:layout_width="wrap_content"
+            android:layout_height="150sp"
+            android:layout_below="@id/FoodTableHeaders"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_alignEnd="@id/progressBar">
+
+
+            <TableLayout
+                android:id="@+id/FoodTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:text="Meal"
+                        android:paddingRight="50sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:text="Food Name"
+                        android:paddingRight="50sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:text="Calories"
+                        android:paddingRight="10sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <Button
+                        android:text="x"
+                        android:layout_width="40sp"
+                        android:layout_height="0sp"
+                        android:visibility="invisible"/>
+
+
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/lblExerciseSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercise:"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_below="@id/ScrollFood"
+            android:textSize="17sp"/>
+
+        <TableLayout
+            android:id="@+id/ExerciseTableHeaders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblExerciseSub"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_alignEnd="@id/progressBar">
+
+            <TableRow>
+
+
+                <TextView
+                    android:text="Name"
+                    android:paddingRight="40sp"/>
+
+                <TextView
+                    android:text="Duration"
+                    android:paddingRight="70sp"/>
+
+                <TextView
+                    android:text="Calories Burnt"
+                    android:paddingRight="50sp"/>
+
+
+            </TableRow>
+
+        </TableLayout>
+
+
+        <ScrollView
+            android:id="@+id/ScrollExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="150sp"
+            android:paddingBottom="20sp"
+            android:layout_below="@id/ExerciseTableHeaders"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_alignEnd="@id/progressBar">
+
+
+            <TableLayout
+                android:id="@+id/ExerciseTable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:text="Name"
+                        android:paddingRight="40sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:text="Duration"
+                        android:paddingRight="70sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:text="Calories"
+                        android:paddingRight="10sp"
+                        android:height="0sp"
+                        android:visibility="invisible"/>
+
+                    <Button
+                        android:text="x"
+                        android:layout_width="40sp"
+                        android:layout_height="0sp"
+                        android:visibility="invisible"/>
+
+
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+
+        </ScrollView>
 
 
 
@@ -102,7 +277,7 @@
             android:id="@+id/profileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/ScrollExercise"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="17dp"
             android:layout_marginLeft="14sp"
@@ -150,5 +325,6 @@
 
 
     </RelativeLayout>
+
 
 </android.support.constraint.ConstraintLayout>
