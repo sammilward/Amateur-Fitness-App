@@ -18,7 +18,38 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
             android:text="Home"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:paddingBottom="10sp"/>
+
+        <TextView
+            android:id="@+id/lblDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log for: "
+            android:layout_below="@id/textView6"
+            android:paddingRight="20sp"
+            android:layout_alignStart="@id/progressBar"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/lbldate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="20sp"
+            android:layout_below="@id/textView6"
+            android:layout_toRightOf="@id/lblDateLabel"
+            android:text="2018-06-27"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/cmdChangeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Date"
+            android:layout_toRightOf="@id/lbldate"
+            android:layout_alignRight="@id/progressBar"
+            android:layout_below="@+id/textView6"
+            android:layout_alignBaseline="@+id/lblDateLabel"/>
 
         <TextView
             android:id="@+id/lblCalsAte"
@@ -42,7 +73,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
+            android:layout_below="@+id/lbldate"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="52dp"/>
 
@@ -89,6 +120,15 @@
             android:layout_centerHorizontal="true"
             android:onClick="pressedButton"
             android:text="Exercise" />
+
+        <Button
+            android:id="@+id/cmdResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Results"
+            android:onClick="pressedButton"
+            android:layout_alignBaseline="@id/profileButton"
+            />
 
         <Button
             android:id="@+id/foodButton"

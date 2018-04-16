@@ -62,7 +62,18 @@ public class FoodActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
 
-        date.setText("" + day + "/"+ (month+1) +"/" + year);
+        String sDay;
+        String sMonth;
+        month = month + 1;
+        if(day < 10){
+            sDay = "0" + day;
+        }
+        else sDay = "" + day;
+        if( month < 10){
+            sMonth= "0" + month;
+        }else sMonth = "" + month;
+
+        date.setText("" + year + "-"+ sMonth +"-" + sDay);
         FoodNames.add("Select a food");
         LoadUsersFood();
         ArrayAdapter<String> Food_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FoodNames);
@@ -74,7 +85,7 @@ public class FoodActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 DatePickerDialog dialog = new DatePickerDialog(FoodActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateListener,
-                        year,month,day);
+                        year,month-1,day);
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
@@ -99,7 +110,7 @@ public class FoodActivity extends AppCompatActivity {
                 }else sMonth = "" + month;
 
 
-                date.setText("" + year + "/"+ sMonth +"/" + sDay);
+                date.setText("" + year + "-"+ sMonth +"-" + sDay);
             }
         };
 
@@ -158,7 +169,7 @@ public class FoodActivity extends AppCompatActivity {
             DailyFood NewEntry = new DailyFood();
             NewEntry.FoodName = cbFoodNames.getSelectedItem().toString();
             NewEntry.AmountAte = txtFoodAmount.getText().toString();
-            NewEntry.DateAte = "2018-04-10"; //date.getText().toString();
+            NewEntry.DateAte = date.getText().toString();
 
             if(rbBreakfast.isChecked()){
                 NewEntry.Meal = "Breakfast";

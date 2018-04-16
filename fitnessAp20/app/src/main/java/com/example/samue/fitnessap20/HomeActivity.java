@@ -1,23 +1,33 @@
 package com.example.samue.fitnessap20;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView lblCalsAte, lblCalsRec, lblRemainingCals;
+    TextView lblCalsAte, lblCalsRec, lblRemainingCals, lbldate;
     DatabaseManager dm = new DatabaseManager(this);
     ProgressBar CalProgress;
+    Button ChangeDate;
+
+    DatePickerDialog.OnDateSetListener dateListener;
+
+    int day, month, year;
 
     private int ProgressVal;
 
@@ -34,8 +44,65 @@ public class HomeActivity extends AppCompatActivity {
         lblCalsAte = (TextView) findViewById(R.id.lblCalsAte);
         lblCalsRec = (TextView) findViewById(R.id.lblCalsRec);
         lblRemainingCals = (TextView) findViewById(R.id.lblRemaingCalories);
+        lbldate = (TextView) findViewById(R.id.lbldate);
 
         CalProgress = (ProgressBar) findViewById(R.id.progressBar);
+
+        ChangeDate = (Button)findViewById(R.id.cmdChangeDate);
+
+        Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        month = calendar.get(Calendar.MONTH);
+        year = calendar.get(Calendar.YEAR);
+
+
+        String sDay ="";
+        String sMonth= "";
+        month = month + 1;
+        if(day < 10){
+            sDay = "0" + day;
+        }
+        else sDay = "" + day;
+        if( month < 10){
+            sMonth= "0" + month;
+        }else sMonth = "" + month;
+
+        lbldate.setText("" + year + "-"+ sMonth +"-" + day);
+
+        ChangeDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog dialog = new DatePickerDialog(HomeActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, dateListener,
+                        year,month-1,day);
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+            }
+        });
+
+
+        dateListener = new DatePickerDialog.OnDateSetListener(){
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day){
+
+                String sDay;
+                String sMonth;
+                month = month + 1;
+                if(day < 10){
+                    sDay = "0" + day;
+                }
+                else sDay = "" + day;
+                if( month < 10){
+                    sMonth= "0" + month;
+                }else sMonth = "" + month;
+
+
+                lbldate.setText("" + year + "-"+ sMonth +"-" + sDay);
+                LoadData();
+            }
+        };
 
 
         LoadData();
@@ -52,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ArrayList<DailyFood> AllFoodData = new ArrayList();
         DailyFood CurDay = new DailyFood();
-        AllFoodData = dm.GetDailyFood("2018-04-10");
+        AllFoodData = dm.GetDailyFood(lbldate.getText().toString());
         //This value needs to be changed for date selected via a calander
 
 
@@ -136,7 +203,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         }
-       if(view == findViewById(R.id.profileButton) ){
+        if(view == findViewById(R.id.profileButton) ){
             Intent activity = new Intent(getApplication(), ProfileActivity.class);
 
             startActivity(activity);
