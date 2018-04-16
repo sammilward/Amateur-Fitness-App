@@ -21,22 +21,14 @@ public class User {
 
 
 
-    public double CalculateBMI()
+    public String CalculateBMI()
     {
         double UserMeterHeight = Double.parseDouble(Height)/100;
         double BMI = (Double.parseDouble(CurrentWeight)/UserMeterHeight) / UserMeterHeight;
-        String BMIMeaning = "";
+        String BMIShort = Double.toString(BMI);
+        BMIShort = BMIShort.substring(0,5);
 
-//        if (BMI < 18.5) BMIMeaning = "Underweight";
-//        else if (18.5 <= BMI && BMI < 24.9) BMIMeaning = "Healthy";
-//        else if (25 <= BMI && BMI < 29.9) BMIMeaning = "Overweight";
-//        else BMIMeaning = "Obese";
-//
-//        System.out.println(BMIMeaning);
-
-
-
-        return BMI;
+        return BMIShort;
     }
 
     public int CalculateRecommendedCalories()

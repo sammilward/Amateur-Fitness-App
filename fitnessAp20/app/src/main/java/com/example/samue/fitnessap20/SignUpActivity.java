@@ -125,6 +125,10 @@ public class SignUpActivity extends AppCompatActivity {
                 NewUser.Height = txtHeight.getText().toString();
                 //Weight in KG
                 //Initial weight and current weight are the same on sign up
+
+
+
+
                 NewUser.CurrentWeight = txtWeight.getText().toString();
                 //User DOB in DD/MM/YYYY
                 NewUser.InitialWeight = txtWeight.getText().toString();
@@ -178,7 +182,7 @@ public class SignUpActivity extends AppCompatActivity {
                 dm.refreshDatabase();
                 dm.SetUserDetails(NewUser);
                 dm.ResultWeight(NewUser.CurrentWeight);
-                dm.ResultBMI(Double.toString(NewUser.CalculateBMI()));
+                dm.ResultBMI(NewUser.CalculateBMI());
 
 
                 Intent activity = new Intent(getApplication(), MainActivity.class);
@@ -229,7 +233,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         if(txtWeight.getText().length() > 0) {
-            if (Integer.valueOf(txtWeight.getText().toString()) <= 20 || Integer.valueOf(txtWeight.getText().toString()) > 250) {
+            if (Double.parseDouble(txtWeight.getText().toString()) <= 20 || Double.parseDouble(txtWeight.getText().toString()) > 250) {
                 Toast.makeText(this, "Enter your weight in Kg between 20-250", Toast.LENGTH_LONG).show();
                 return false;
             }

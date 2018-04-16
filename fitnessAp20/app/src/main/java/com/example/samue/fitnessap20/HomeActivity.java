@@ -209,6 +209,11 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(activity);
         }
 
+        if(view == findViewById(R.id.cmdResults) ){
+            Intent activity = new Intent(getApplication(), ResultsActivity.class);
+
+            startActivity(activity);
+        }
 
 
     }

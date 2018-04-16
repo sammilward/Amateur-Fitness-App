@@ -746,18 +746,27 @@ public class DatabaseManager extends SQLiteOpenHelper{
     }
 
     //Get the results of a certain date
-    public Results GetResults (String date)
+    public ArrayList<Results> GetResults()
     {
-        Results Temp = new Results();
+        ArrayList<Results> AllResults = new ArrayList();
+
         try {
             database = this.getWritableDatabase();
 
             String[] Cols = {"DateResults","Weight", "BMI", "BodyFat"};
-            Cursor cursor = database.query(ResultsTable, Cols, "DateResults = '" + date + "'" ,null,null,null,null);
-            cursor.moveToFirst();
-            Temp.Weight = cursor.getString(cursor.getColumnIndex("Weight"));
-            Temp.BMI = cursor.getString(cursor.getColumnIndex("BMI"));
-            Temp.BodyFat = cursor.getString(cursor.getColumnIndex("BodyFat"));
+            Cursor cursor = database.query(ResultsTable, Cols, null ,null,null,null,null);
+
+            while (cursor.moveToNext())
+            {
+                Results Temp = new Results();
+                Temp.DateResults = cursor.getString(cursor.getColumnIndex("DateResults"));
+                Temp.Weight = cursor.getString(cursor.getColumnIndex("Weight"));
+                Temp.BMI = cursor.getString(cursor.getColumnIndex("BMI"));
+                Temp.BodyFat = cursor.getString(cursor.getColumnIndex("BodyFat"));
+                AllResults.add(Temp);
+            }
+
+
             cursor.close();
             database.close();
         }
@@ -767,7 +776,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
         }
 
 
-        return Temp;
+        return AllResults;
     }
 
 

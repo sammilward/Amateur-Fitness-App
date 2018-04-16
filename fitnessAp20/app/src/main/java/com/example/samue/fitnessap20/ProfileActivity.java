@@ -127,7 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
                 break;
         }
 
-        Double TempBmi = CurUser.CalculateBMI(), BMI;
+        Double TempBmi = Double.parseDouble(CurUser.CalculateBMI()), BMI;
         DecimalFormat df = new DecimalFormat("#.#");
         BMI = Double.valueOf(df.format(TempBmi));
 
@@ -192,7 +192,7 @@ public class ProfileActivity extends AppCompatActivity {
         UpdatedUser.CalculateRecommendedCalories();
         dm.SetUserDetails(UpdatedUser);
         dm.ResultWeight(UpdatedUser.CurrentWeight);
-        dm.ResultBMI(Double.toString(UpdatedUser.CalculateBMI()));
+        dm.ResultBMI(UpdatedUser.CalculateBMI());
 
         LoadData();
     }

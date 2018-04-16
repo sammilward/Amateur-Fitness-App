@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.samue.fitnessap20.ResultsActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lblResultTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Results"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/lblHint"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:text="Hint: Remember to update your results by updating your current weight in the profile page, and recalculating your body dat percentage"
+            android:layout_below="@id/lblResultTitle"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20sp"
+            android:paddingBottom="20sp"/>
+
+        <TableLayout
+            android:id="@+id/ResultsTableHeaders"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/lblHint"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblHint"
+            android:layout_alignEnd="@id/lblHint">
+
+            <TableRow>
+
+                <TextView
+                    android:text="Date"
+                    android:paddingRight="75sp"/>
+
+                <TextView
+                    android:text="Weight"
+                    android:paddingRight="30sp"/>
+
+                <TextView
+                    android:text="BMI"
+                    android:paddingRight="30sp"/>
+
+                <TextView
+                    android:text="Body Fat %"
+                    />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <ScrollView
+            android:id="@+id/ResultScroller"
+            android:layout_width="wrap_content"
+            android:layout_alignStart="@id/ResultsTableHeaders"
+            android:layout_alignEnd="@id/ResultsTableHeaders"
+            android:layout_height="200sp"
+            android:layout_below="@id/ResultsTableHeaders"
+            android:layout_centerHorizontal="true">
+
+
+
+        <TableLayout
+            android:id="@+id/ResultsTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lblHint"
+            android:layout_alignEnd="@id/lblHint">
+
+            <TableRow>
+
+            <TextView
+                android:text="Date"
+                android:paddingRight="75sp"
+                android:visibility="invisible"
+                android:layout_height="0sp"/>
+
+            <TextView
+                android:text="Weight"
+                android:paddingRight="30sp"
+                android:visibility="invisible"
+                android:layout_height="0sp"/>
+
+            <TextView
+                android:text="BMI"
+                android:paddingRight="30sp"
+                android:visibility="invisible"
+                android:layout_height="0sp"/>
+
+            <TextView
+                android:text="Body Fat %"
+                android:visibility="invisible"
+                android:layout_height="0sp"
+                />
+
+            </TableRow>
+
+        </TableLayout>
+
+
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/lblWeightDifSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ResultScroller"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20sp"
+            android:text="Weight difference since registration:"/>
+
+        <TextView
+            android:id="@+id/lblWeightDif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/lblWeightDifSub"
+            android:paddingTop="20sp"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -124,7 +124,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="Weight in kg"
-                    android:inputType="textPersonName|number" />
+                    android:inputType="numberDecimal" />
 
                 <Button
                     android:id="@+id/dateButton"

@@ -105,11 +105,10 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="17dp"
-            android:layout_marginStart="27dp"
+            android:layout_marginLeft="14sp"
             android:onClick="pressedButton"
             android:text="Profile"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="503dp" />
+             />
 
         <Button
             android:id="@+id/exerciseButton"
@@ -117,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/profileButton"
             android:layout_alignBottom="@+id/profileButton"
-            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/profileButton"
             android:onClick="pressedButton"
             android:text="Exercise" />
 
@@ -127,7 +126,9 @@
             android:layout_height="wrap_content"
             android:text="Results"
             android:onClick="pressedButton"
+            android:layout_toRightOf="@id/exerciseButton"
             android:layout_alignBaseline="@id/profileButton"
+
             />
 
         <Button
@@ -137,11 +138,10 @@
             android:layout_alignBaseline="@+id/profileButton"
             android:layout_alignBottom="@+id/profileButton"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="21dp"
+            android:layout_toRightOf="@id/cmdResults"
             android:onClick="pressedButton"
             android:text="Food"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="503dp" />
+            android:layout_marginRight="14sp" />
 
 
 

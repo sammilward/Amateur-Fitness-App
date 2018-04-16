@@ -80,9 +80,10 @@ public class BodyFat extends AppCompatActivity {
             Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
             BodyFat = curuser.CalculateBodyFat(WaistGir,0.0,0.0,0.0);
         }
-        lblBodyFat.setText("Body Fat Percentage: " + BodyFat);
+        String BodyFatShort = Double.toString(BodyFat).substring(0,4);
+        lblBodyFat.setText("Body Fat Percentage: " + BodyFatShort);
         lblBodyFat.setVisibility(View.VISIBLE);
-        dm.ResultBodyFat(Double.toString(BodyFat));
+        dm.ResultBodyFat(BodyFatShort);
 
     }
 }
