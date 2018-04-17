@@ -88,7 +88,7 @@
             android:layout_alignBottom="@+id/lblCurrentWeight"
             android:layout_alignStart="@+id/txtInitalWeight"
             android:ems="10"
-            android:inputType="none|number"
+            android:inputType="numberDecimal|number"
             android:textAlignment="textEnd" />
 
         <TextView
@@ -110,7 +110,7 @@
             android:layout_alignBottom="@+id/lblHeight"
             android:layout_alignStart="@+id/txtName"
             android:ems="10"
-            android:inputType="none|number"
+            android:inputType="numberDecimal|number"
             android:textAlignment="textEnd" />
 
         <TextView

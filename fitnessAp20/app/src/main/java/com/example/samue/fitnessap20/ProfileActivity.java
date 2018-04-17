@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -58,7 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
             txtName.setEnabled(true);
             txtCurrentWeight.setEnabled(true);
             txtHeight.setEnabled(true);
-            txtRecCals.setEnabled(true);
             cbTarget.setEnabled(true);
             cbFitnessLevel.setEnabled(true);
             cmdChangeDate.setVisibility(view.VISIBLE);
@@ -146,69 +146,108 @@ public class ProfileActivity extends AppCompatActivity {
     //Check if entered information is valid
     public boolean Validated()
     {
+
+        if (txtName.getText().toString().length() < 2 || txtName.getText().toString().length() > 30)
+        {
+            Toast.makeText(this, "Enter a name between 2 and 30 characters long", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(txtCurrentWeight.getText().length() > 0) {
+            if (Double.parseDouble(txtCurrentWeight.getText().toString()) <= 20 || Double.parseDouble(txtCurrentWeight.getText().toString()) > 250) {
+                Toast.makeText(this, "Enter your current weight in Kg between 20-250", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if(txtHeight.getText().length() > 0) {
+            if (Double.parseDouble(txtCurrentWeight.getText().toString()) <= 70 || Double.parseDouble(txtCurrentWeight.getText().toString()) > 250) {
+                Toast.makeText(this, "Enter your current height in cm between 70 - 250", Toast.LENGTH_LONG).show();
+                return false;
+            }
+            else {
+                Toast.makeText(this, "Enter a value for height in cm", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+        }
+
+
         return true;
     }
 
     //Save users new data to the database
     public void SaveData()
     {
-        User UpdatedUser = new User();
-        UpdatedUser.Name = txtName.getText().toString();
-        UpdatedUser.InitialWeight = txtInitialWeight.getText().toString();
-        UpdatedUser.CurrentWeight = txtCurrentWeight.getText().toString();
-        UpdatedUser.Height = txtHeight.getText().toString();
-        UpdatedUser.DOB = txtDOB.getText().toString();
-        String TempTarget = cbTarget.getSelectedItem().toString();
-        if (TempTarget.equals("Maintain Weight"))
+        if (Validated())
         {
-            UpdatedUser.Target = "M";
-        }
-        else if (TempTarget.equals("Lose 1 lb a week"))
-        {
-            UpdatedUser.Target = "-1LbW";
-        }
-        else if (TempTarget.equals("Lose 2 lb a week"))
-        {
-            UpdatedUser.Target = "-2LbW";
-        }
-        switch (cbFitnessLevel.getSelectedItem().toString())
-        {
-            case "1":
-                UpdatedUser.FitnessLevel = "1";
-                break;
-            case "2":
-                UpdatedUser.FitnessLevel = "2";
-                break;
-            case "3":
-                UpdatedUser.FitnessLevel = "3";
-                break;
-            case "4":
-                UpdatedUser.FitnessLevel = "4";
-                break;
-            case "5":
-                UpdatedUser.FitnessLevel = "5";
-                break;
-        }
-        UpdatedUser.CalculateRecommendedCalories();
-        dm.SetUserDetails(UpdatedUser);
-        dm.ResultWeight(UpdatedUser.CurrentWeight);
-        dm.ResultBMI(UpdatedUser.CalculateBMI());
+            User UpdatedUser = new User();
+            UpdatedUser.Name = txtName.getText().toString();
+            UpdatedUser.InitialWeight = txtInitialWeight.getText().toString();
+            UpdatedUser.CurrentWeight = RoundStringToString(txtCurrentWeight.getText().toString(),1);
+            UpdatedUser.Height = RoundStringToString(txtHeight.getText().toString(),1);
+            UpdatedUser.DOB = txtDOB.getText().toString();
+            String TempTarget = cbTarget.getSelectedItem().toString();
+            if (TempTarget.equals("Maintain Weight"))
+            {
+                UpdatedUser.Target = "M";
+            }
+            else if (TempTarget.equals("Lose 1 lb a week"))
+            {
+                UpdatedUser.Target = "-1LbW";
+            }
+            else if (TempTarget.equals("Lose 2 lb a week"))
+            {
+                UpdatedUser.Target = "-2LbW";
+            }
+            switch (cbFitnessLevel.getSelectedItem().toString())
+            {
+                case "1":
+                    UpdatedUser.FitnessLevel = "1";
+                    break;
+                case "2":
+                    UpdatedUser.FitnessLevel = "2";
+                    break;
+                case "3":
+                    UpdatedUser.FitnessLevel = "3";
+                    break;
+                case "4":
+                    UpdatedUser.FitnessLevel = "4";
+                    break;
+                case "5":
+                    UpdatedUser.FitnessLevel = "5";
+                    break;
+            }
+            UpdatedUser.CalculateRecommendedCalories();
+            dm.SetUserDetails(UpdatedUser);
+            dm.ResultWeight(UpdatedUser.CurrentWeight);
+            dm.ResultBMI(RoundStringToString(UpdatedUser.CalculateBMI(),1));
 
-        LoadData();
-    }
-
-    //Write function to use calander to input date method
-    public void SetDate()
-    {
+            LoadData();
+        }
 
     }
 
-    //New activity that opens that allows users to input info to add body fat results
+   //New activity that opens that allows users to input info to add body fat results
     public void LoadBodyFat(View view){
 
 
         Intent intent = new Intent(this, BodyFat.class);
         startActivity(intent);
+
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
+    }
+
+    public String RoundStringToString (String Convert, int precision)
+    {
+        Double Converted = Double.parseDouble(Convert);
+        Double Rounded = round(Converted, precision);
+        String returnedString = Double.toString(Rounded);
+        return returnedString;
 
     }
 }

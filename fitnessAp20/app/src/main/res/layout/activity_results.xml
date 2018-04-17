@@ -23,7 +23,7 @@
             android:id="@+id/lblHint"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:text="Hint: Remember to update your results by updating your current weight in the profile page, and recalculating your body dat percentage"
+            android:text="Hint: Remember to update your results by updating your current weight in the profile page, and recalculating your body fat percentage"
             android:layout_below="@id/lblResultTitle"
             android:layout_centerHorizontal="true"
             android:paddingTop="20sp"

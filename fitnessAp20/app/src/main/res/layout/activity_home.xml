@@ -129,7 +129,7 @@
         <ScrollView
             android:id="@+id/ScrollFood"
             android:layout_width="wrap_content"
-            android:layout_height="150sp"
+            android:layout_height="100sp"
             android:layout_below="@id/FoodTableHeaders"
             android:layout_alignStart="@id/progressBar"
             android:layout_alignEnd="@id/progressBar">
@@ -220,7 +220,7 @@
         <ScrollView
             android:id="@+id/ScrollExercise"
             android:layout_width="wrap_content"
-            android:layout_height="150sp"
+            android:layout_height="100sp"
             android:paddingBottom="20sp"
             android:layout_below="@id/ExerciseTableHeaders"
             android:layout_alignStart="@id/progressBar"
@@ -270,6 +270,72 @@
 
 
         </ScrollView>
+        <TextView
+            android:id="@+id/lblDailyTotals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Totals           Scroll to see more -->"
+            android:textSize="17sp"
+            android:layout_below="@id/ScrollExercise"
+            android:layout_alignStart="@id/progressBar"/>
+
+        <HorizontalScrollView
+            android:id="@+id/HozScrollTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/progressBar"
+            android:layout_alignEnd="@id/progressBar"
+            android:layout_below="@id/lblDailyTotals"
+            android:layout_centerHorizontal="true">
+
+            <TableLayout
+                android:id="@+id/TotalTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TableRow>
+                    <TextView android:text="Calories(kcal)"
+                        android:paddingRight="20sp"/>
+
+                    <TextView android:text="Calories Burnt (kcal)"
+                        android:paddingRight="20sp"/>
+
+
+                    <TextView android:text="Exercise Duration (Minutes)"
+                        android:paddingRight="20sp"/>
+
+                    <TextView android:text="Carbs (g)"
+                        android:paddingRight="40sp"/>
+
+                    <TextView android:text="Protein (g)"
+                        android:paddingRight="20sp"/>
+
+                    <TextView android:text="Fat (g)"
+                        android:paddingRight="40sp"/>
+
+
+                    <TextView android:text="Carbs of Sugars (g)"
+                        android:paddingRight="20sp"/>
+
+                    <TextView android:text="Fat Saturated (g)"
+                        android:paddingRight="20sp"/>
+
+                    <TextView android:text="Salt (g)"
+                        android:paddingRight="40sp"/>
+
+                    <TextView android:text="Fibre (g)" />
+
+
+
+
+
+
+                </TableRow>
+
+
+            </TableLayout>
+
+        </HorizontalScrollView>
 
 
 
@@ -277,7 +343,7 @@
             android:id="@+id/profileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ScrollExercise"
+            android:layout_below="@id/HozScrollTotal"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="17dp"
             android:layout_marginLeft="14sp"

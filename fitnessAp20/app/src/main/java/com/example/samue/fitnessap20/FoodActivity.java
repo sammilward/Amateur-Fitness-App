@@ -74,10 +74,9 @@ public class FoodActivity extends AppCompatActivity {
         }else sMonth = "" + month;
 
         date.setText("" + year + "-"+ sMonth +"-" + sDay);
-        FoodNames.add("Select a food");
+
         LoadUsersFood();
-        ArrayAdapter<String> Food_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FoodNames);
-        cbFoodNames.setAdapter(Food_adapter);
+
 
 
         dateButton.setOnClickListener(new View.OnClickListener() {
@@ -123,13 +122,21 @@ public class FoodActivity extends AppCompatActivity {
 
     public void LoadUsersFood()
     {
+        FoodNames.clear();
+        FoodNames.add("Select a food");
         AllFood = dm.GetAllFood();
         for (int i = 0; i < AllFood.size(); i++)
         {
             FoodNames.add(AllFood.get(i).FoodName);
         }
+        ResetSpinner();
     }
 
+    public void ResetSpinner()
+    {
+        ArrayAdapter<String> Food_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, FoodNames);
+        cbFoodNames.setAdapter(Food_adapter);
+    }
 
     public void addFood(View view) {
 
@@ -145,6 +152,26 @@ public class FoodActivity extends AppCompatActivity {
 
     public boolean Validated()
     {
+        if (txtFoodAmount.getText().toString().length() > 4 || txtFoodAmount.getText().toString().length() <= 0)
+        {
+            Toast.makeText(this, "Enter the amount of this food you have ate in Grams", Toast.LENGTH_LONG).show();
+            return false;
+
+        }
+        if (!rbBreakfast.isChecked() && !rbLunch.isChecked() && !rbDinner.isChecked() && !rbSnack.isChecked())
+        {
+            Toast.makeText(this, "Select at which time of day you ate this food", Toast.LENGTH_LONG).show();
+            return false;
+
+        }
+
+        if (cbFoodNames.getSelectedItemPosition() == 0)
+        {
+            Toast.makeText(this, "Please chose the food you ate", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+
         return true;
     }
 

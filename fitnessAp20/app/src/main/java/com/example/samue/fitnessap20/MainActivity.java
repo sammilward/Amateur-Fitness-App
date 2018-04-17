@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         lblCurrentUser = (TextView)findViewById(R.id.lblCurrentUser);
         loadData();
 
+
     }
 
     public void loadData()

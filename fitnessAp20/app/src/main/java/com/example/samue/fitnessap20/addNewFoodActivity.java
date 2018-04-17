@@ -31,49 +31,132 @@ public class addNewFoodActivity extends AppCompatActivity {
 
     public void AddFood(View view)
     {
-        //NEED VALIDATION FUNCTION TO BE CALLED HERE. ONLY NAME AND CALORIES ARE MANDITORY.
-        //HOWEVER ALL FIELDS WILL NEED TO BE VALIDATED FOR BAD INPUT
-        Food NewFood = new Food();
-        NewFood.FoodName = txtFoodName.getText().toString();
-        NewFood.CaloriesPer100 = txtCals.getText().toString();
-        if (txtFat.getText().length() != 0)
+        if (Validated())
         {
-            NewFood.FatPer100 = txtFat.getText().toString();
-        }
-        if (txtFatSat.getText().length() != 0)
-        {
-            NewFood.FatSaturatedPer100 = txtFatSat.getText().toString();
-        }
-        if (txtCarbs.getText().length() != 0)
-        {
-            NewFood.CarbsPer100 = txtCarbs.getText().toString();
-        }
-        if (txtCarbSugars.getText().length()!=0)
-        {
-            NewFood.CarbSugarPer100 = txtCarbSugars.getText().toString();
-        }
-        if (txtProtein.getText().length()!=0)
-        {
-            NewFood.ProteinPer100 = txtProtein.getText().toString();
-        }
-        if (txtFibre.getText().length()!=0)
-        {
-            NewFood.FibrePer100 = txtFibre.getText().toString();
-        }
-        if (txtSalt.getText().length()!=0)
-        {
-            NewFood.SaltPer100 = txtSalt.getText().toString();
-        }
+            Food NewFood = new Food();
+            NewFood.FoodName = txtFoodName.getText().toString();
+            NewFood.CaloriesPer100 = RoundStringToString(txtCals.getText().toString(),1);
+            if (txtFat.getText().length() != 0)
+            {
+                NewFood.FatPer100 = RoundStringToString(txtFat.getText().toString(),1);
+            }
+            if (txtFatSat.getText().length() != 0)
+            {
+                NewFood.FatSaturatedPer100 = RoundStringToString(txtFatSat.getText().toString(),1);
+            }
+            if (txtCarbs.getText().length() != 0)
+            {
+                NewFood.CarbsPer100 = RoundStringToString(txtCarbs.getText().toString(),1);
+            }
+            if (txtCarbSugars.getText().length()!=0)
+            {
+                NewFood.CarbSugarPer100 = RoundStringToString(txtCarbSugars.getText().toString(),1);
+            }
+            if (txtProtein.getText().length()!=0)
+            {
+                NewFood.ProteinPer100 = RoundStringToString(txtProtein.getText().toString(),1);
+            }
+            if (txtFibre.getText().length()!=0)
+            {
+                NewFood.FibrePer100 = RoundStringToString(txtFibre.getText().toString(),1);
+            }
+            if (txtSalt.getText().length()!=0)
+            {
+                NewFood.SaltPer100 = RoundStringToString(txtSalt.getText().toString(),1);
+            }
 
 
 
 
-        Toast.makeText(this, "New food added to database", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "New food added to database", Toast.LENGTH_LONG).show();
 
-        dm.AddFood(NewFood);
+            dm.AddFood(NewFood);
 
-        ClearForm();
+            ClearForm();
+        }
 
+
+
+    }
+
+    public boolean Validated()
+    {
+        if (txtFoodName.getText().toString().length() == 0 || txtFoodName.getText().toString().length() > 30)
+        {
+            Toast.makeText(this, "Please enter a food name between 1 and 30 characters in length", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (txtCals.getText().toString().length() == 0 || txtCals.getText().toString().length() > 6)
+        {
+            Toast.makeText(this, "Enter a calorie amount between 1 and 4 values long", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (txtFat.getText().toString().length() != 0)
+        {
+            if (txtFat.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Fat per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtFatSat.getText().toString().length() != 0)
+        {
+            if (txtFatSat.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Fat sat per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtCarbs.getText().toString().length() != 0)
+        {
+            if (txtCarbs.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Carbs per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtCarbSugars.getText().toString().length() != 0)
+        {
+            if (txtCarbSugars.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Carb sugars per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtProtein.getText().toString().length() != 0)
+        {
+            if (txtProtein.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Protein per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtFibre.getText().toString().length() != 0)
+        {
+            if (txtFibre.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Fibre per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        if (txtSalt.getText().toString().length() != 0)
+        {
+            if (txtSalt.getText().toString().length() > 6)
+            {
+                Toast.makeText(this, "Salt per 100g must be lower than 4 values long", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        return true;
     }
 
     protected void ClearForm(){
@@ -86,6 +169,20 @@ public class addNewFoodActivity extends AppCompatActivity {
         txtProtein.setText("");
         txtFibre.setText("");
         txtSalt.setText("");
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
+    }
+
+    public String RoundStringToString (String Convert, int precision)
+    {
+        Double Converted = Double.parseDouble(Convert);
+        Double Rounded = round(Converted, precision);
+        String returnedString = Double.toString(Rounded);
+        return returnedString;
+
     }
 
     //SAM WRITE A VALIDATION FUNCTION HERE AND CALL IT AT THE START OF ADD FOOD, JUST LIKE ON THE REGISTRATION FORM

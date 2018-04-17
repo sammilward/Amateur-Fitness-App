@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Required"
-                android:inputType="textPersonName" />
+                android:inputType="text" />
         </TableRow>
 
         <TableRow
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Required"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -77,7 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Optional"
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -98,7 +99,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Optional"
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -119,7 +121,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Optional"
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -139,7 +142,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Optional"
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -159,7 +163,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:hint="Optional"
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -178,8 +183,9 @@
                 android:id="@+id/editText21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:hint="Optional"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </TableRow>
 
         <TableRow
@@ -197,9 +203,10 @@
             <EditText
                 android:id="@+id/editText22"
                 android:layout_width="wrap_content"
+                android:hint="Optional"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </TableRow>
 
     </TableLayout>

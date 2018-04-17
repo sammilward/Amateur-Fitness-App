@@ -80,10 +80,16 @@ public class BodyFat extends AppCompatActivity {
             Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
             BodyFat = curuser.CalculateBodyFat(WaistGir,0.0,0.0,0.0);
         }
-        String BodyFatShort = Double.toString(BodyFat).substring(0,4);
-        lblBodyFat.setText("Body Fat Percentage: " + BodyFatShort);
+        double RoundedBF = round(BodyFat,1);
+        lblBodyFat.setText("Body Fat Percentage: " + Double.toString(RoundedBF));
         lblBodyFat.setVisibility(View.VISIBLE);
-        dm.ResultBodyFat(BodyFatShort);
+        dm.ResultBodyFat(Double.toString(RoundedBF));
 
     }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
+    }
+
 }

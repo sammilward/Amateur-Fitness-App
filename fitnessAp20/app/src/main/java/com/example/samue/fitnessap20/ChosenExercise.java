@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChosenExercise extends AppCompatActivity {
 
@@ -171,6 +172,7 @@ public class ChosenExercise extends AppCompatActivity {
             NewEx.DateExercised = "";
             dm.AddExerciseDaily(NewEx);
             ClearForm();
+            Toast.makeText(this, "Exercise added to your daily amount", Toast.LENGTH_LONG).show();
         }
     }
 

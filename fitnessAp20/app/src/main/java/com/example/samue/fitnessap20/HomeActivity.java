@@ -25,11 +25,12 @@ import java.util.Calendar;
 public class HomeActivity extends AppCompatActivity {
 
     TextView lblCalsAte, lblCalsRec, lblRemainingCals, lbldate, lblMeal, lblFoodName, lblCalories, lblExName, lblDuration, lblCalBurnt;
+    TextView lblTotalCal, lblTotalCarbs, lblTotalCarbSugar, lblTotalProtein, lblTotalFat, lblTotalFatSat, lblTotalSalt, lblTotalFibre, lblTotalDuration, lblTotalCalBurnt;
     DatabaseManager dm = new DatabaseManager(this);
     ProgressBar CalProgress;
     Button ChangeDate, cmdRemoveFood, cmdRemoveExercise;
-    TableLayout FoodTable, ExerciseTable;
-    TableRow CurRow, CurRow2;
+    TableLayout FoodTable, ExerciseTable, TotalTable;
+    TableRow CurRow, CurRow2, CurRow3;
 
     DatePickerDialog.OnDateSetListener dateListener;
 
@@ -58,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         FoodTable = (TableLayout) findViewById(R.id.FoodTable);
         ExerciseTable = (TableLayout) findViewById(R.id.ExerciseTable);
+        TotalTable = (TableLayout) findViewById(R.id.TotalTable);
 
         Calendar calendar = Calendar.getInstance(); // creates an instance of Calendar with the current date.
         day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -140,6 +142,7 @@ public class HomeActivity extends AppCompatActivity {
         double TempConsumedCals = 0;
 
         //Loop to calculate calories ate on given date
+        //And to populate the food table
         for (int i = 0; i < AllFoodData.size(); i++)
         {
             Food CurrentFood = new Food();
@@ -193,8 +196,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         //Loop here to calculate all calories burnt
-        //Remove figure from TempConsumedCals
-
+        //And populate the exercise table
         for (int i = 0; i < AllExerciseData.size(); i++)
         {
             TempConsumedCals = TempConsumedCals - Double.parseDouble(AllExerciseData.get(i).CaloriesBurnt);
@@ -241,6 +243,71 @@ public class HomeActivity extends AppCompatActivity {
             ExerciseTable.addView(CurRow2);
 
         }
+
+
+        //Populate totals table
+        DailyTotals CurTotals = new DailyTotals();
+        CurTotals = dm.GetDailyTotals(lbldate.getText().toString());
+        ResetTotalTable();
+        CurRow3 = new TableRow(this);
+        Double PrintedVal;
+
+        //
+        lblTotalCal = new TextView(this);
+        PrintedVal = round(CurTotals.TotalCalories,1);
+        lblTotalCal.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalCal);
+
+        lblTotalCalBurnt = new TextView(this);
+        PrintedVal = round(CurTotals.TotalCaloriesBurnt,1);
+        lblTotalCalBurnt.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalCalBurnt);
+
+        lblTotalDuration = new TextView(this);
+        PrintedVal = round(CurTotals.TotalDuration,1);
+        lblTotalDuration.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalDuration);
+
+        lblTotalCarbs = new TextView(this);
+        PrintedVal = round(CurTotals.TotalCarbs,1);
+        lblTotalCarbs.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalCarbs);
+
+        lblTotalProtein = new TextView(this);
+        PrintedVal = round(CurTotals.TotalProtein,1);
+        lblTotalProtein.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalProtein);
+
+        lblTotalFat = new TextView(this);
+        PrintedVal = round(CurTotals.TotalFat,1);
+        lblTotalFat.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalFat);
+
+        lblTotalCarbSugar = new TextView(this);
+        PrintedVal = round(CurTotals.TotalCarbSugars,1);
+        lblTotalCarbSugar.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalCarbSugar);
+
+        lblTotalFatSat = new TextView(this);
+        PrintedVal = round(CurTotals.TotalFatSaturates,1);
+        lblTotalFatSat.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalFatSat);
+
+        lblTotalSalt = new TextView(this);
+        PrintedVal = round(CurTotals.TotalSalt,1);
+        lblTotalSalt.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalSalt);
+
+        lblTotalFibre = new TextView(this);
+        PrintedVal = round(CurTotals.TotalFibre,1);
+        lblTotalFibre.setText(""+PrintedVal);
+        CurRow3.addView(lblTotalFibre);
+
+        TotalTable.addView(CurRow3);
+
+
+
+
 
 
         int ConsumedCals = (int) TempConsumedCals;
@@ -313,6 +380,15 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public void ResetTotalTable()
+    {
+        int count = TotalTable.getChildCount();
+        for (int i = 1; i < count; i++) {
+            View child = TotalTable.getChildAt(i);
+            if (child instanceof TableRow) ((ViewGroup) child).removeAllViews();
+        }
+    }
+
     //Switch from one screen to another
     public void pressedButton(View view){
 
@@ -344,6 +420,13 @@ public class HomeActivity extends AppCompatActivity {
         }
 
 
+
+
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 
 }

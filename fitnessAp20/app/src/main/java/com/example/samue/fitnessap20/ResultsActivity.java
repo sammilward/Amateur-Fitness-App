@@ -66,7 +66,7 @@ public class ResultsActivity extends AppCompatActivity {
         User CurUsr = new User();
         CurUsr = dm.GetUsersDetails();
 
-        Double Difference = Double.parseDouble(CurUsr.CurrentWeight) - Double.parseDouble(CurUsr.InitialWeight);
+        Double Difference = round(Double.parseDouble(CurUsr.CurrentWeight) - Double.parseDouble(CurUsr.InitialWeight),1);
 
         if (Difference < 0)
         {
@@ -80,4 +80,10 @@ public class ResultsActivity extends AppCompatActivity {
             lblWeightDif.setText("Your weight has not changed since joining. Make sure you update your weght in the Profile page");
         }
     }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
+    }
+
 }

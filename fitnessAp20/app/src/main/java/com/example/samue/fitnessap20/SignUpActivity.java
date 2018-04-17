@@ -122,16 +122,16 @@ public class SignUpActivity extends AppCompatActivity {
                 //FullName
                 NewUser.Name = txtName.getText().toString();
                 //Height In CM
-                NewUser.Height = txtHeight.getText().toString();
+                NewUser.Height = RoundStringToString(txtHeight.getText().toString(),1);
                 //Weight in KG
                 //Initial weight and current weight are the same on sign up
 
 
 
 
-                NewUser.CurrentWeight = txtWeight.getText().toString();
+                NewUser.CurrentWeight = RoundStringToString(txtWeight.getText().toString(),1);
                 //User DOB in DD/MM/YYYY
-                NewUser.InitialWeight = txtWeight.getText().toString();
+                NewUser.InitialWeight = NewUser.CurrentWeight;
                 NewUser.DOB = txtDOB.getText().toString();
 
                 if (rbMale.isChecked())
@@ -208,8 +208,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     public boolean verifyData(){
-        if(txtName.getText().length() < 2) {
-            Toast.makeText(this, "Enter a name at least 2 letters long", Toast.LENGTH_LONG).show();
+        if(txtName.getText().length() < 2 || txtName.getText().length() > 30) {
+            Toast.makeText(this, "Enter a name with characters between 2 and 30 in length", Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -219,14 +219,14 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         if(txtHeight.getText().length() > 0) {
-            if (Integer.valueOf(txtHeight.getText().toString()) > 250) {
-                Toast.makeText(this, "Enter your height in cm, below 250", Toast.LENGTH_LONG).show();
+            if (Integer.valueOf(txtHeight.getText().toString()) > 250 || Integer.valueOf(txtHeight.getText().toString()) < 70) {
+                Toast.makeText(this, "Enter your height in cm between 70 and 250", Toast.LENGTH_LONG).show();
                 return false;
             }
         }
 
         if(txtHeight.getText().length() == 0){
-          Toast.makeText(this, "Please enter your height in inches", Toast.LENGTH_LONG).show();
+          Toast.makeText(this, "Please enter your height in cm", Toast.LENGTH_LONG).show();
           return false;
         }
 
@@ -251,25 +251,27 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
 
-
-//        if(target.getText().length() > 0) {
-//            if (Integer.valueOf(target.getText().toString()) <= 0 || Integer.valueOf(target.getText().toString()) > 5) {
-//                Toast.makeText(this, "please enter your target ( We recommend 1-2lbs per week but the max target is 5", Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        }
-//        if(target.getText().length() == 0){
-//            Toast.makeText(this, "please enter your target ( We recommend 1-2lbs per week but the max target is 5", Toast.LENGTH_LONG).show();
-//            return false;
-//        }
-
-
         if(!rbLevel1.isChecked() && !rbLevel2.isChecked() && !rbLevel3.isChecked() && !rbLevel4.isChecked() && !rbLevel5.isChecked()){
             Toast.makeText(this, "Please select your fitness level", Toast.LENGTH_LONG).show();
             return false;
         }
 
         return true;
+    }
+
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
+    }
+
+    public String RoundStringToString (String Convert, int precision)
+    {
+        Double Converted = Double.parseDouble(Convert);
+        Double Rounded = round(Converted, precision);
+        String returnedString = Double.toString(Rounded);
+        return returnedString;
+
     }
 
 
