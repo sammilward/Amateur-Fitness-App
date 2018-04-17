@@ -30,4 +30,10 @@
         <item>Chest</item>
     </string-array>
 
+    <string-array name="GraphView">
+        <item>Graph of Weight</item>
+        <item>Graph of BMI</item>
+        <item>Graph of Body Fat</item>
+    </string-array>
+
 </resources>

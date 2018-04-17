@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_alignStart="@id/ResultsTableHeaders"
             android:layout_alignEnd="@id/ResultsTableHeaders"
-            android:layout_height="200sp"
+            android:layout_height="160sp"
             android:layout_below="@id/ResultsTableHeaders"
             android:layout_centerHorizontal="true">
 
@@ -126,7 +126,30 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/lblWeightDifSub"
-            android:paddingTop="20sp"/>
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"/>
+
+        <Spinner
+            android:id="@+id/SpinnerGraphFor"
+            android:layout_width="220sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblWeightDif"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/GraphView">
+
+        </Spinner>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/ResultBarChart"
+            android:layout_width="360sp"
+            android:layout_height="210sp"
+            android:layout_below="@id/SpinnerGraphFor"
+            android:layout_centerHorizontal="true">
+
+
+
+
+        </com.github.mikephil.charting.charts.BarChart>
 
 
 

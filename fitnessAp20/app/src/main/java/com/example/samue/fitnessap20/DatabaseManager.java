@@ -469,7 +469,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
             //String having
             //String orderBy
             String[] Cols = {"DateAte", "FoodName", "Meal", "AmountAte"};
-            Cursor cursor = database.query(dailyFoodTable, Cols, "DateAte = '" + Date + "'" ,null,null,null,null);
+            Cursor cursor = database.query(dailyFoodTable, Cols, "DateAte = '" + Date + "'" ,null,"Meal",null,null);
 
             while(cursor.moveToNext())
             {
@@ -578,7 +578,7 @@ public class DatabaseManager extends SQLiteOpenHelper{
         try {
             database = this.getWritableDatabase();
             String[] Cols = {"FoodName", "CaloriesPer100", "FatPer100", "FatSaturatedPer100", "CarbsPer100", "CarbSugarPer100", "ProteinPer100", "FibrePer100", "SaltPer100"};
-            Cursor cursor = database.query(FoodTable, Cols, null ,null,null,null,null);
+            Cursor cursor = database.query(FoodTable, Cols, null ,null,null,null,"FoodName");
             while(cursor.moveToNext())
             {
                 Food Temp = new Food();
@@ -874,18 +874,21 @@ public class DatabaseManager extends SQLiteOpenHelper{
 
             String[] Cols = {"DateTotal","TotalCalories", "TotalCarbs", "TotalCarbSugars", "TotalProtein", "TotalFat", "TotalFatSaturates", "TotalSalt", "TotalFibre", "TotalDuration", "TotalCaloriesBurnt"};
             Cursor cursor = database.query(dailyTotalTable, Cols, "DateTotal = '" + Date + "'" ,null,null,null,null);
-            cursor.moveToFirst();
-            Temp.DateTotal = cursor.getString(cursor.getColumnIndex("DateTotal"));
-            Temp.TotalCalories = cursor.getDouble(cursor.getColumnIndex("TotalCalories"));
-            Temp.TotalCarbs = cursor.getDouble(cursor.getColumnIndex("TotalCarbs"));
-            Temp.TotalCarbSugars = cursor.getDouble(cursor.getColumnIndex("TotalCarbSugars"));
-            Temp.TotalProtein = cursor.getDouble(cursor.getColumnIndex("TotalProtein"));
-            Temp.TotalFat = cursor.getDouble(cursor.getColumnIndex("TotalFat"));
-            Temp.TotalFatSaturates = cursor.getDouble(cursor.getColumnIndex("TotalFatSaturates"));
-            Temp.TotalSalt = cursor.getDouble(cursor.getColumnIndex("TotalSalt"));
-            Temp.TotalFibre = cursor.getDouble(cursor.getColumnIndex("TotalFibre"));
-            Temp.TotalDuration = cursor.getDouble(cursor.getColumnIndex("TotalDuration"));
-            Temp.TotalCaloriesBurnt = cursor.getDouble(cursor.getColumnIndex("TotalCaloriesBurnt"));
+            while (cursor.moveToNext())
+            {
+                Temp.DateTotal = cursor.getString(cursor.getColumnIndex("DateTotal"));
+                Temp.TotalCalories = cursor.getDouble(cursor.getColumnIndex("TotalCalories"));
+                Temp.TotalCarbs = cursor.getDouble(cursor.getColumnIndex("TotalCarbs"));
+                Temp.TotalCarbSugars = cursor.getDouble(cursor.getColumnIndex("TotalCarbSugars"));
+                Temp.TotalProtein = cursor.getDouble(cursor.getColumnIndex("TotalProtein"));
+                Temp.TotalFat = cursor.getDouble(cursor.getColumnIndex("TotalFat"));
+                Temp.TotalFatSaturates = cursor.getDouble(cursor.getColumnIndex("TotalFatSaturates"));
+                Temp.TotalSalt = cursor.getDouble(cursor.getColumnIndex("TotalSalt"));
+                Temp.TotalFibre = cursor.getDouble(cursor.getColumnIndex("TotalFibre"));
+                Temp.TotalDuration = cursor.getDouble(cursor.getColumnIndex("TotalDuration"));
+                Temp.TotalCaloriesBurnt = cursor.getDouble(cursor.getColumnIndex("TotalCaloriesBurnt"));
+            }
+
             cursor.close();
             database.close();
         } catch (SQLException e)

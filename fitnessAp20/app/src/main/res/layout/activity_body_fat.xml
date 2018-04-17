@@ -44,7 +44,8 @@
             android:layout_alignBaseline="@id/lblWaistGirth"
             android:layout_toRightOf="@id/lblWaistGirth"
             android:textAlignment="textEnd"
-            android:layout_alignEnd="@id/lblTitle"/>
+            android:layout_alignEnd="@id/lblTitle"
+            android:inputType="number"/>
 
         <TextView
             android:id="@+id/lblWristCir"
@@ -67,6 +68,7 @@
             android:layout_alignBaseline="@id/lblWristCir"
             android:layout_toRightOf="@id/lblWristCir"
             android:layout_alignEnd="@id/lblTitle"
+            android:inputType="number"
             android:visibility="invisible"/>
 
         <TextView
@@ -89,6 +91,7 @@
             android:hint="INCHS"
             android:layout_alignBaseline="@id/lblHipCir"
             android:layout_toRightOf="@id/lblHipCir"
+            android:inputType="number"
             android:layout_alignEnd="@id/lblTitle"
             android:visibility="invisible"/>
 
@@ -111,6 +114,7 @@
             android:textAlignment="textEnd"
             android:hint="INCHS"
             android:layout_alignBaseline="@id/lblForarmCir"
+            android:inputType="number"
             android:layout_toRightOf="@id/lblForarmCir"
             android:layout_alignEnd="@id/lblTitle"
             android:visibility="invisible"/>

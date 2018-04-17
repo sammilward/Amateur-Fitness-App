@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -65,25 +66,28 @@ public class BodyFat extends AppCompatActivity {
         Double BodyFat = 0.0;
 
 
+        if (Validated())
+        {
+            if ("Female".equals(curuser.Sex))
+            {
+                Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
+                Double WristCir = Double.parseDouble(txtWristCir.getText().toString());
+                Double HipCir = Double.parseDouble(txtHipCir.getText().toString());
+                Double ForearmCir = Double.parseDouble(txtForarmCir.getText().toString());
+                BodyFat = curuser.CalculateBodyFat(WaistGir,WristCir,HipCir,ForearmCir);
+            }
+            else
+            {
+                Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
+                BodyFat = curuser.CalculateBodyFat(WaistGir,0.0,0.0,0.0);
+            }
+            double RoundedBF = round(BodyFat,1);
+            lblBodyFat.setText("Body Fat Percentage: " + Double.toString(RoundedBF));
+            lblBodyFat.setVisibility(View.VISIBLE);
+            dm.ResultBodyFat(Double.toString(RoundedBF));
+        }
 
 
-        if ("Female".equals(curuser.Sex))
-        {
-            Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
-            Double WristCir = Double.parseDouble(txtWristCir.getText().toString());
-            Double HipCir = Double.parseDouble(txtHipCir.getText().toString());
-            Double ForearmCir = Double.parseDouble(txtForarmCir.getText().toString());
-            BodyFat = curuser.CalculateBodyFat(WaistGir,WristCir,HipCir,ForearmCir);
-        }
-        else
-        {
-            Double WaistGir = Double.parseDouble(txtWaistGirth.getText().toString());
-            BodyFat = curuser.CalculateBodyFat(WaistGir,0.0,0.0,0.0);
-        }
-        double RoundedBF = round(BodyFat,1);
-        lblBodyFat.setText("Body Fat Percentage: " + Double.toString(RoundedBF));
-        lblBodyFat.setVisibility(View.VISIBLE);
-        dm.ResultBodyFat(Double.toString(RoundedBF));
 
     }
 
@@ -91,5 +95,48 @@ public class BodyFat extends AppCompatActivity {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
     }
+
+    public boolean Validated()
+    {
+        if ("Female".equals(curuser.Sex))
+        {
+            if(txtWristCir.getText().length() <= 0 || txtWristCir.getText().length() > 3)
+            {
+                Toast.makeText(this, "Enter a rounded inch measurement of Wrist", Toast.LENGTH_LONG).show();
+                return false;
+            }
+            if (txtForarmCir.getText().length() <= 0 || txtForarmCir.getText().length() > 3)
+            {
+                Toast.makeText(this, "Enter a rounded inch measurement of Forarm", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (txtHipCir.getText().length() <= 0 || txtHipCir.getText().length() > 3)
+            {
+                Toast.makeText(this, "Enter a rounded inch measurement of Hip", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            if (txtWaistGirth.getText().length() <= 0 || txtWaistGirth.getText().length() > 3)
+            {
+                Toast.makeText(this, "Enter a rounded inch measurement of Waist", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+        }
+        else if ("Male".equals(curuser.Sex))
+        {
+            if (txtWaistGirth.getText().length() <= 0 || txtWaistGirth.getText().length() > 3)
+            {
+                Toast.makeText(this, "Enter a rounded inch measurement of Waist", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //http://www.bmi-calculator.net/body-fat-calculator/#result
+
 
 }

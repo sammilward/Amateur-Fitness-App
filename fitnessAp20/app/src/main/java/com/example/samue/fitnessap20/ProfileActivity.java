@@ -161,15 +161,16 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         if(txtHeight.getText().length() > 0) {
-            if (Double.parseDouble(txtCurrentWeight.getText().toString()) <= 70 || Double.parseDouble(txtCurrentWeight.getText().toString()) > 250) {
+            if (Double.parseDouble(txtHeight.getText().toString()) < 70 || Double.parseDouble(txtHeight.getText().toString()) > 250) {
                 Toast.makeText(this, "Enter your current height in cm between 70 - 250", Toast.LENGTH_LONG).show();
                 return false;
             }
-            else {
-                Toast.makeText(this, "Enter a value for height in cm", Toast.LENGTH_LONG).show();
-                return false;
-            }
 
+
+        }
+        else {
+            Toast.makeText(this, "Enter a value for height in cm", Toast.LENGTH_LONG).show();
+            return false;
         }
 
 

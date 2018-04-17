@@ -159,6 +159,7 @@ public class HomeActivity extends AppCompatActivity {
 
             lblFoodName = new TextView(this);
             lblFoodName.setText(CurrentFood.FoodName);
+            lblFoodName.setMaxWidth(100);
             CurRow.addView(lblFoodName);
 
             lblCalories = new TextView(this);
@@ -206,6 +207,7 @@ public class HomeActivity extends AppCompatActivity {
             lblExName = new TextView(this);
             lblExName.setText(AllExerciseData.get(i).ExerciseName);
             lblExName.setMaxWidth(100);
+
             CurRow2.addView(lblExName);
 
             lblDuration = new TextView(this);
