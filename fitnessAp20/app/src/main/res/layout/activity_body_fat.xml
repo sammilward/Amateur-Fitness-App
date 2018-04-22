@@ -9,7 +9,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/BackgroundCol">
 
         <TextView
             android:id="@+id/lblTitle"
@@ -23,7 +24,8 @@
             android:paddingStart="35sp"
             android:text="Calcaulate Body Fat"
             android:textSize="26sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/TitleColour"/>
 
         <TextView
             android:id="@+id/lblWaistGirth"
@@ -34,6 +36,7 @@
             android:text="Waist Girth:"
             android:textSize="20sp"
             android:layout_below="@id/lblTitle"
+            android:textColor="@color/TitleColour"
             />
 
         <EditText
@@ -57,6 +60,7 @@
             android:paddingBottom="30sp"
             android:layout_below="@id/lblWaistGirth"
             android:visibility="invisible"
+            android:textColor="@color/TitleColour"
             />
 
         <EditText
@@ -81,6 +85,7 @@
             android:textSize="20sp"
             android:layout_below="@id/lblWristCir"
             android:visibility="invisible"
+            android:textColor="@color/TitleColour"
             />
 
         <EditText
@@ -105,6 +110,7 @@
             android:textSize="20sp"
             android:layout_below="@id/lblHipCir"
             android:visibility="invisible"
+            android:textColor="@color/TitleColour"
             />
 
         <EditText
@@ -127,7 +133,8 @@
             android:layout_below="@id/lblForarmCir"
             android:layout_alignStart="@id/lblForarmCir"
             android:layout_alignEnd="@id/txtForarmCir"
-            android:onClick="Calculate"/>
+            android:onClick="Calculate"
+            android:background="@color/ButtonColour"/>
 
         <TextView
             android:id="@+id/lblBodyFat"
@@ -138,7 +145,8 @@
             android:layout_alignEnd="@id/cmdCalculateBF"
             android:visibility="invisible"
             android:textSize="25sp"
-            android:paddingTop="50sp"/>
+            android:paddingTop="50sp"
+            android:textColor="@color/TitleColour"/>
 
 
 

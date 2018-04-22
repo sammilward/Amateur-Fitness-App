@@ -10,7 +10,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/BackgroundCol">
 
         <TextView
             android:id="@+id/textView6"
@@ -20,8 +21,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
             android:text="Home"
-            android:textSize="30sp"
-            android:paddingBottom="10sp"/>
+            android:textSize="25sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/TitleColour"/>
 
         <TextView
             android:id="@+id/lblDateLabel"
@@ -51,6 +53,7 @@
             android:layout_toRightOf="@id/lbldate"
             android:layout_alignRight="@id/progressBar"
             android:layout_below="@+id/textView6"
+            android:background="@color/ButtonColour"
             android:layout_alignBaseline="@+id/lblDateLabel"/>
 
         <TextView
@@ -291,7 +294,8 @@
             <TableLayout
                 android:id="@+id/TotalTable"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="35sp">
 
                 <TableRow>
                     <TextView android:text="Calories(kcal)"
@@ -349,6 +353,7 @@
             android:layout_marginLeft="14sp"
             android:onClick="pressedButton"
             android:text="Profile"
+            android:background="@color/ButtonColour"
              />
 
         <Button
@@ -359,6 +364,7 @@
             android:layout_alignBottom="@+id/profileButton"
             android:layout_toRightOf="@id/profileButton"
             android:onClick="pressedButton"
+            android:background="@color/ButtonColour"
             android:text="Exercise" />
 
         <Button
@@ -369,6 +375,7 @@
             android:onClick="pressedButton"
             android:layout_toRightOf="@id/exerciseButton"
             android:layout_alignBaseline="@id/profileButton"
+            android:background="@color/ButtonColour"
 
             />
 
@@ -382,7 +389,8 @@
             android:layout_toRightOf="@id/cmdResults"
             android:onClick="pressedButton"
             android:text="Food"
-            android:layout_marginRight="14sp" />
+            android:layout_marginRight="14sp"
+            android:background="@color/ButtonColour"/>
 
 
 

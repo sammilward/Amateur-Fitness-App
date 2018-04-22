@@ -6,17 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.samue.fitnessap20.ExerciseActivity">
 
-    <TextView
-        android:id="@+id/Exercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:text="Exercises"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout4"
@@ -27,7 +17,22 @@
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
+        android:background="@color/BackgroundCol">
+
+        <TextView
+            android:id="@+id/Exercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:text="Exercises"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/TitleColour"/>
 
         <TextView
             android:id="@+id/lblSubTitle"
@@ -37,7 +42,7 @@
             android:layout_marginStart="11dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="70dp"
-            android:fontFamily="casual"
+            android:textColor="@color/TitleColour"
             android:text="Find    Exercises    by:"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -68,7 +73,8 @@
             android:layout_alignEnd="@id/lblSubTitle"
             android:layout_below="@id/cbFindBy"
             android:text="Search"
-            android:onClick="CreateTextAndButtons"/>
+            android:onClick="CreateTextAndButtons"
+            android:background="@color/ButtonColour"/>
 
         <ScrollView
             android:id="@+id/scExercies"

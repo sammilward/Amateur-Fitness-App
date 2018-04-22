@@ -19,7 +19,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/BackgroundCol">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="                Add food to diary"
+                android:textSize="25sp"
+                android:textColor="@color/TitleColour"
+                />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -32,9 +41,8 @@
                     android:layout_height="wrap_content"
                     android:text="Date eaten :"
                     android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/TitleColour"
+                    android:textSize="24sp"/>
 
                 <EditText
                     android:id="@+id/date"
@@ -57,7 +65,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:text="Select Date"
-                    android:textColor="#000000" />
+                    android:background="@color/ButtonColour" />
 
             </RelativeLayout>
 
@@ -159,14 +167,15 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center_vertical"
                     android:text='Add daily food'
-                    android:onClick="AddDailyFood"/>
+                    android:onClick="AddDailyFood"
+                    android:background="@color/ButtonColour"/>
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="Or add new Item" />
+                    android:text="Or add new food to your database" />
 
                 <Button
                     android:id="@+id/addFood"
@@ -174,7 +183,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:onClick="addFood"
-                    android:text="(+)" />
+                    android:text="(+)"
+                    android:background="@color/ButtonColour"/>
 
             </LinearLayout>
 

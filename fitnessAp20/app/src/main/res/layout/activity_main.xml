@@ -8,6 +8,7 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
+        android:background="@color/BackgroundCol"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,14 +41,17 @@
 
         <Button
             android:id="@+id/cmdContinue"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_alignBaseline="@+id/textView2"
             android:layout_alignBottom="@+id/textView2"
             android:layout_centerHorizontal="true"
             android:onClick="butPressed"
-            android:text="@string/ContinueButton" />
+            android:text="@string/ContinueButton"
+            android:paddingRight="10sp"
+            android:layout_marginLeft="10sp"
+            android:background="@color/ButtonColour"/>
 
 
         <TextView
@@ -64,9 +68,13 @@
 
         <Button
             android:id="@+id/dateButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@id/cmdContinue"
+            android:layout_alignEnd="@id/cmdContinue"
             android:layout_below="@id/cmdContinue"
+            android:background="@color/ButtonColour"
             android:onClick="butPressed"
             android:text="@string/MakeNewAccountButton" />
 
@@ -78,7 +86,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
             android:text="Get Fit Now"
+            android:textColor="@color/TitleColour"
             android:textAlignment="center"
+
             android:textSize="30sp"
             android:textStyle="bold" />
 

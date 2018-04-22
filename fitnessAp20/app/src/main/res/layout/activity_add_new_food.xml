@@ -7,219 +7,238 @@
     tools:context="com.example.samue.fitnessap20.addNewFoodActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView38"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="FoodName"
-                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editText29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Required"
-                android:inputType="text" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView37"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Calories(kcal) Per 100g    "
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Required"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView36"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="FatPer 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Optional"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:gravity="left"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView34"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Fat Saturated per 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Optional"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="left">
-
-            <TextView
-                android:id="@+id/textView35"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="CarbsPer 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText26"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Optional"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="CarbSugar Per 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Optional"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Protein Per 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Optional"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Fibre Per 100g "
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Optional"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="Salt Per 100g"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/editText22"
-                android:layout_width="wrap_content"
-                android:hint="Optional"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-    </TableLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout3"
-        android:layout_width="0dp"
-        android:layout_height="135dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+        android:background="@color/BackgroundCol">
+
+        <TextView
+            android:id="@+id/NewFoodTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Food To Your Database"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/TitleColour"
+            android:textSize="25sp"/>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="21dp"
+            android:layout_below="@id/NewFoodTitle">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="FoodName"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Required"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Calories(kcal) Per 100g    "
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Required"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="FatPer 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Optional"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:gravity="left"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Fat Saturated per 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Optional"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left">
+
+                <TextView
+                    android:id="@+id/textView35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="CarbsPer 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Optional"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="CarbSugar Per 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Optional"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Protein Per 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Optional"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Fibre Per 100g "
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Optional"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Salt Per 100g"
+                    android:textStyle="bold"
+                    android:textColor="@color/TitleColour"/>
+
+                <EditText
+                    android:id="@+id/editText22"
+                    android:layout_width="wrap_content"
+                    android:hint="Optional"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+            </TableRow>
+
+        </TableLayout>
 
         <Button
             android:id="@+id/submitButton"
@@ -231,7 +250,8 @@
             android:text="Submit Food Item"
             android:onClick="AddFood"
             tools:layout_editor_absoluteX="117dp"
-            tools:layout_editor_absoluteY="575dp" />
+            tools:layout_editor_absoluteY="575dp"
+            android:background="@color/ButtonColour"/>
 
         <Button
             android:id="@+id/button11"
@@ -239,8 +259,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_alignStart="@id/submitButton"
+            android:layout_alignEnd="@id/submitButton"
             android:layout_marginBottom="15dp"
-            android:text="Cancel" />
+            android:text="Cancel"
+            android:background="@color/ButtonColour"/>
 
     </RelativeLayout>
 

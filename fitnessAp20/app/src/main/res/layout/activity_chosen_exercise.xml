@@ -15,7 +15,8 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/BackgroundCol">
 
 
             <TextView
@@ -25,7 +26,8 @@
                 android:paddingTop="20sp"
                 android:text="Exercise Name"
                 android:layout_centerHorizontal="true"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:textColor="@color/TitleColour"/>
             
             <Button
                 android:id="@+id/cmdImage"
@@ -103,7 +105,8 @@
                 android:layout_alignEnd="@+id/cmdImage"
                 android:layout_below="@id/txtCaloriesBurnt"
                 android:text="Add Exercise"
-                android:onClick="AddExercise"/>
+                android:onClick="AddExercise"
+                android:background="@color/ButtonColour"/>
             
             
 

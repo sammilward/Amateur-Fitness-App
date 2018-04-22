@@ -14,6 +14,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -153,7 +154,7 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"Weight");
-
+        barDataSet.setColors(new int[] {R.color.BackgroundCol});
         BarData data = new BarData(Dates,barDataSet);
 
 
@@ -190,7 +191,7 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"BMI");
-
+        barDataSet.setColors(new int[] {R.color.BackgroundCol});
         BarData data = new BarData(Dates,barDataSet);
 
 
@@ -225,6 +226,7 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"Body Fat");
+        barDataSet.setColors(new int[] {R.color.BackgroundCol});
 
         BarData data = new BarData(Dates,barDataSet);
 

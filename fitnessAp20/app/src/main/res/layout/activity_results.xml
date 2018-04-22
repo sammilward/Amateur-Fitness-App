@@ -9,15 +9,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/BackgroundCol">
 
         <TextView
             android:id="@+id/lblResultTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Results"
-            android:textSize="30sp"
-            android:layout_centerHorizontal="true"/>
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/TitleColour"/>
 
         <TextView
             android:id="@+id/lblHint"
