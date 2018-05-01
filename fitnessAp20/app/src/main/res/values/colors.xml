@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#D8DBE2</color>
-    <color name="BackgroundCol">#FFFFF0</color>
-    <color name="colorPrimaryDark">#F7F052</color>
-    <color name="TitleColour">#F7F052</color>
-    <color name="ButtonColour">#E5f993</color>
-    <color name="MildBrownCol">#E2C391</color>
-    <color name="colorAccent">#F7F052</color>
+    <color name="BackgroundCol">#ECEBE4</color>
+    <color name="colorPrimaryDark">#00a7e1</color>
+    <color name="TitleColour">#006494</color>
+    <color name="ButtonColour">#00a7e1</color>
+    <color name="colorAccent">#38aecc</color>
     <color name="Red">#FF1111</color>
     <color name="Orange">#FF5500</color>
     <color name="Green">#00FF00</color>

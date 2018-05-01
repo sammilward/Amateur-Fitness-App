@@ -154,9 +154,9 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"Weight");
-        barDataSet.setColors(new int[] {R.color.BackgroundCol});
         BarData data = new BarData(Dates,barDataSet);
 
+        //barDataSet.setColors(new int[] {R.color.BackgroundCol});
 
         ResultBarChar.setData(data);
         ResultBarChar.setScaleEnabled(true);
@@ -191,7 +191,7 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"BMI");
-        barDataSet.setColors(new int[] {R.color.BackgroundCol});
+        //barDataSet.setColors(new int[] {R.color.BackgroundCol});
         BarData data = new BarData(Dates,barDataSet);
 
 
@@ -226,7 +226,6 @@ public class ResultsActivity extends AppCompatActivity {
         }
 
         BarDataSet barDataSet = new BarDataSet(Entries,"Body Fat");
-        barDataSet.setColors(new int[] {R.color.BackgroundCol});
 
         BarData data = new BarData(Dates,barDataSet);
 
